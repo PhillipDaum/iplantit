@@ -1,13 +1,20 @@
 # hackathon
 IBM hackathon
-TITLE
-This ApP
 
+TITLE: food security app, you can plan your garden easy in your area
 
 
 THE ISSUE
 - specific problem, short less than 400 words
-People are hungry. They can grow their own food. they don't know where to start. they can have a grocery store in their backyard. or in a box by their thing
+Gardening is hard, planing a garden is hard, 
+
+
+People are hungry. They can grow their own food. they don't know where to start. 
+they can have a grocery store in their backyard. or in a box by their thing.
+Growing food is complicated
+This tool will agregate location based climate data
+location based soil data
+users 
 
 also real people with property and small farmers can use it a lot.  
 
@@ -53,14 +60,18 @@ also for boxes like city gardens and shit
 
 
 
-
 DATA SOURCES
 websoilsurvey.nrcs.usda.gov USDA soil map
 Weather data
 Zone data and shit from seeds
+- Then they will draw a picture of their garden, AI, something like that Google quick draw rool will pick shapes
+they will add sizes, they can also enter if they have it in like a box from home depot or something and what soil mix they use. 
+they will draw in shade zones
+they can use the soil tool to figure out their soil types and input that data
 
+at long last the user gets AI suggested garden patterns
 
-
+MARKETING OPPORTUNITIES - connect with suppliers and etc. etc. etc. 
 
 
 COMPETITIORS
@@ -69,7 +80,6 @@ Territorial --- plan your garden
 
 BIGGER INDUSTRY TOOLS
 Dynascape with sketchup integration for large firm work think college campus landscapes, not food
-
 
 
 
