@@ -36,16 +36,38 @@ nothing yet
 - Phil Daum
 
 # Additional
+
+## Jira
+- https://tefpm.atlassian.net/jira/software/projects/IP/boards/1
+
+## Figma
+- https://www.figma.com/file/kmE41NwtIqIXkXOI7FgGr5/iplantit
+
 ## contributing
 Currently this project is in its intial phases as part of the IBM Call for code.....
 The team can have up to five participants.
 - If you are intereted in collaborating, send a message to Phil about why
 - 📫 philgdaum@gmail.com
+
 ## Core Features
 
 ## Data Sources
+- Google sheets in progress: https://drive.google.com/drive/folders/1FBDJhVOm6dd3J6gBnQJUaNVhACWGgRi_?usp=sharing
+- Climate
+-- Hardiness Zone: https://www.fs.fed.us/wildflowers/Native_Plant_Materials/Native_Gardening/hardinesszones.shtml
+-- USDA Web Soil Survey: https://websoilsurvey.sc.egov.usda.gov/App/HomePage.htm
+- Weather
+    - tools from hackathon
+    -- Weather Company API (costs money I think just after December 1, 2022)
+- Indexes of Seed information
+    -- Look at google docs for now
+- Good info: https://community.ibm.com/community/user/datascience/blogs/susan-malaika/2020/02/21/call-for-code-useful-datasets
 
 ## Competitors and similar products
+- Johnny's Seeds
+- Territorial
+- Spreadsheets
+- more later
 
-## Future Features
+## Future Features (backlog)
 
