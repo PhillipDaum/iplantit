@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:export-filename="/home/user/Documents/github/hackathon/logo/logo-draft.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="drawing.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="3.0075196"
+     inkscape:cx="10.806247"
+     inkscape:cy="123.19122"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="1200"
+     inkscape:window-y="732"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       d="m 14.048551,10.52997 h -3.873644 c 0,8.150575 6.070726,14.759326 13.557755,14.759326 v 9.48814 c 0,0.579828 0.435785,1.054236 0.968412,1.054236 h 1.936821 c 0.532627,0 0.968412,-0.474408 0.968412,-1.054236 v -9.48814 c 0,-8.150573 -6.070729,-14.759326 -13.557756,-14.759326 z M 37.290418,6.3130202 c -5.096266,0 -9.526745,3.0638786 -11.844879,7.5905108 1.676563,1.989873 2.917339,4.40803 3.571017,7.089747 6.821245,-0.770911 12.147509,-7.043626 12.147509,-14.6802578 z"
+       id="path9"
+       style="stroke-width:0.0631508" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="4.5784249"
+       y="47.551025"
+       id="text2220"><tspan
+         sodipodi:role="line"
+         id="tspan2218"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.264583"
+         x="4.5784249"
+         y="47.551025">iplantit</tspan></text>
+  </g>
+</svg>

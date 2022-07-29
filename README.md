@@ -71,3 +71,6 @@ The team can have up to five participants.
 
 ## Future Features (backlog)
 
+## Logo
+- using Font Awesome icon
+

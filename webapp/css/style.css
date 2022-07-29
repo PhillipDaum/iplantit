@@ -1,0 +1,8 @@
+
+/* removes focus outline from input */
+input[type="text"], textarea {
+    outline: none;
+    box-shadow:none !important;
+    }
+
+ /* makes animation on chatbot text */  
