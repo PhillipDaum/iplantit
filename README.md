@@ -5,21 +5,15 @@
 
 ## The issue
 **Reduce Gloabal food insecurity** 
-- Empowering people who grow food plants or want to grow food plants
-- it is a lot of complex information to process to do this well
-- Getting started is difficult for a lot of people
-- There is a lack of easily accesible information
-- Also, some people don't know what they need to know
-- on top of that the process of figuring out where, when and how to plant things within your garden can be daunting 
-- it is healthier than a lot of available foods
-- its sustainable
-- it reduces the impact on food infrastucure (ie victory gardens)
-- it could even be done in food deserts!
-- it also draws attention to these healthy and sustainable practices
+- One great way to get food that is nutritious, delicious sustainable and good for the environment is to grow it yourself! Even many seasoned gardeners struggle to plan and plot their garden beds.
+- What grows well in your area? What grows well together? Where and when do I plant things? 
+- The questions go on...
 
 
 ## The solution (about 10 words)
-A simple graphical vector-based application that makes sustainable food gardening and planning easy and accesable.
+- A simple graphical vector-based application that makes sustainable food gardening and planning fun and easy. It will generate potential garden bed plots that are easy to understand.
+
+- The long term goal is to create community, more features and expand the product to help as many people as possible!
 
 ## How it works (up to 5 steps)
 1. user enters size and shape of their garden beds
