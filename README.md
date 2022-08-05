@@ -1,7 +1,10 @@
 # iplantit
 - This is the working title of our project. It is on the pathway to become a simple progressive web application that make food garden planning fun and easy!
 - These first rounds of development are for the <a href="https://callforcode-platform.bemyapp.com">Call for Code<a> hackathon
-- Looking for team-members
+- Looking for team-members! some of the things we need:
+    - Relational Databse Skills
+    - API integrations skills
+    - Front-end development 
 
 ## The issue
 **Reduce Gloabal food insecurity** 
@@ -16,39 +19,20 @@
 - The long term goal is to create community, more features and expand the product to help as many people as possible!
 
 ## How it works (up to 5 steps)
-1. user enters size and shape of their garden beds
-2.
-3.
-4.
-5.
-
+1. User enters the size and shape of their garden bed plot
+2. Algorithms match potential plants
+3. Users see several computer generated potential garden bed plots 
+4. Later, we can add more features and a larger database
+5. Then we can help lots of people grow food!
 
 
 ## Solution Roadmap (needs work)
 1. Building a Minimum Viable Product
-    - really basic data set
-    - proof of concept
-
-2. Users can login and save gardens and beds
-
-3. 
-- integrate more and more data
-- add features
-- build community
-
-4. Expand regions
-5. Expand garden types
+- <a href="https://docs.google.com/presentation/d/13Tld0auayDP0qe8fm_LJ7DUadZqYfe9nqoZZtEl-viA/edit?usp=sharing">Google Sheets Roadmap (in progress)<a> 
 
 
 ## Team
 - Phil Daum
-
-### We need
-- someone to build a relational database that can be used for the seed data
-- front end developer who can take the draft
-- a back end person to link everything togethor
-- figure out how to link up some APIs
-- who can develop a vector based thing?
 
 # Additional
 
@@ -61,10 +45,10 @@ Currently this project is in its intial phases as part of the IBM Call for Code 
 - 📫 philgdaum@gmail.com
 
 ## Data Sources
+- Starting off simple
+-- Google sheets in progress: https://docs.google.com/spreadsheets/d/1iU_Rn9BQwQSm-3zeFGbPUFh-3Pl34hcUC1iAi9vNQzA/edit#gid=446916469
 
-- Google sheets in progress: https://drive.google.com/drive/folders/1FBDJhVOm6dd3J6gBnQJUaNVhACWGgRi_?usp=sharing
-
-- Climate
+- Potential Data Sources to add later
 -- Hardiness Zone: https://www.fs.fed.us/wildflowers/Native_Plant_Materials/Native_Gardening/hardinesszones.shtml
 -- USDA Web Soil Survey: https://websoilsurvey.sc.egov.usda.gov/App/HomePage.htm
 - Weather
