@@ -1,4 +1,0 @@
-Angular Bootstrap person
-Relational Database person
-Api Integration person
-Jethro? hmmm........

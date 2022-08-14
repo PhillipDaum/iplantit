@@ -51,21 +51,26 @@
         <!-- first tile --> 
         <div class="container-fluid hero1 justify-content-center d-flex">
           <div class="row align-items-center">
+            <h1>Create a garden</h1>
+            <p>right now it only works for rectangular gardens.</p>
+            <p>enter the length and width of your garden and hit submit</p>
+            
+
+            <!-- Build function to take this data to the matching algorythm --> 
             <form>
               <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Give your garden a name!</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <div id="emailHelp" class="form-text">We'll never share your garden infoz with anyone else.</div>
+                <label for="exampleInputPassword1" class="form-label">length (in)</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
               </div>
-              <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">I agree to things, or this won't work.</label>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">width (in)</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
               </div>
-              <!-- This  will do a function that creates the user's record for the garden. Later, they will have to log-in and stuff
-              Then it goes to the individual garden page that can be generated, but there is a template: ./gardens/garden-template -->
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <!-- onclick, it will do a function makeGarden--> 
+              <button type="submit" class="btn btn-primary" onclick="">Submit</button>
             </form>
-            <a type="button" class="btn btn-outline-success btn-lg ms-3 me-3" href="garden-list.html">go back</a>
+
+            <a type="button" class="btn btn-outline-success btn-lg ms-3 me-3" href="index.html">go back</a>
           </div>
         </div>
 

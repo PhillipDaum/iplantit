@@ -1,38 +1,26 @@
-// This page is a mess as I learn how to do this
+// getting started with this initial array.
+// the spacing is like a radius around the plant as a centerpoint. It is in inches.
+//
+//
 
-function createGarden()
+
+const plants = [];
+plants[0] = { name: "sweet basil", spacing: 1, companions: "", icon: ""};
+plants[1] = { name: "cherry tomato", spacing: 16, companions: "", icon: ""};
+plants[2] = { name: "serrano pepper", spacing: 6, companions: "", icon: ""};
+plants[3] = { name: "red onion", spacing: 2, companions: "", icon: ""};
+plants[4] = { name: "cucumber", spacing: 2, companions: "", icon: ""};
+plants[5] = { name: "romaine lettuce", spacing: 3, companions: "", icon: ""};
+plants[6] = { name: "cantaloupe melon", spacing: 7, companions: "", icon: ""};
+plants[7] = { name: "yellow squash", spacing: 10, companions: "", icon: ""};
+plants[8] = { name: "eggplant", spacing: 2, companions: "", icon: ""};
+plants[9] = { name: "curly kale", spacing: 9, companions: "", icon: ""};
+plants[10] = { name: "carrot", spacing: 9, companions: "", icon: "<i class="fa-solid fa-carrot"></i>"};
 
 
-//puts an item in inventory
-function grab(b) {
-    // when player picks up an item
-    inventory.push(b);  
-    console.log('whacked the' + b);
-}
-
-//displays inventory
-function showInventory() {
-    //displays inventory message
-    let inventoryMenu = document.createElement('div');
-        inventoryMenu.innerHTML = "this is what you have:";
-        inventoryMenu.className = "text-info p-2 fs-3 mb-2 font-monospace lh-sm";
-        document.getElementById("chatloggy").appendChild(inventoryMenu);
-
-    //displays inventory list
-    //change - items to inventory
-    //coins
-    for (var i = 0; i < inventory.coins.length; i++) {
-        let coinsList = document.createElement('div');
-        coinsList.innerHTML = inventory.coins[i].name;
-        coinsList.className = "col-2 text-info fs-3 ms-5 mb-2 font-monospace lh-sm";
-        document.getElementById("chatloggy").appendChild(coinsList);
-    }
-    //keys
-    for (var i = 0; i < items.keys.length; i++) {
-        let keysList = document.createElement('div');
-        keysList.innerHTML = inventory.keys[i].name;
-        keysList.className = "col-2 text-info fs-3 ms-5 mb-2 font-monospace lh-sm";
-        document.getElementById("chatloggy").appendChild(keysList);
-    }
-}
-
+// This function will submit the user data,
+// go to the next page
+// draw the rectangle
+// it will take the best answer from the array of what to plant
+// it will print all of the icons inside of it
+// function makeGarden()
