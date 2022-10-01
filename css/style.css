@@ -1,1 +1,321 @@
-/* nothing yet */
+body {
+    font-family: 'Karla';font-size: 22px;
+}
+.navbar {
+	left: 0;
+	right: 0;
+	top: 0;
+	width: 99%;
+	height: 50px;
+	background-color: #36AD89;
+	position: fixed;
+	flex-direction: row;
+	padding: 10px;
+}
+
+#nav-bar-icon {
+	height: 50px;
+	float: left;
+}
+
+#nav-bar-icon-home {
+	height: 35px;
+	margin-top: 7px;
+	float: left;
+}
+
+#nav-bar-notification-icon {
+	margin-top: 7px;
+	margin-right: 10px;
+	height: 35px;
+	float: right;
+}
+
+.share-button {
+	float: right;
+	margin-top: 7px;
+	height: 35px;
+	width: 100px;
+	border-radius: 20px;
+	border: none;
+	box-shadow: 2px 2px 2px black;
+	margin-right: 40px;
+    text-align: center;
+    line-height: 2px;
+}
+
+.grey-zone {
+	left: 0;
+	right: 0;
+	top: 70px;
+	width: 99%;
+	height: 220px;
+	background-color: #D9D9D9;
+	position: fixed;
+	flex-direction: row;
+	padding: 10px;
+}
+
+.content {
+	position: relative;
+}
+
+#title {
+	font-size: 25px;
+	margin-top: 120px;
+	margin-left: 50px;
+}
+
+#title2 {
+	font-size: 25px;
+	margin-top: 30px;
+	margin-left: 50px;
+}
+
+.gardens {
+	padding: 50px;
+	padding-top: 0px;
+}
+
+.garden {
+  margin-left: 40px;
+  box-shadow: 2px 2px 2px grey;
+  text-align: center;
+  padding: 2px;
+  float: left;
+  background-color: white;
+  border-radius: 17px;
+  width: 29%;
+  height: 200px;
+}
+
+#add-image-button {
+	margin-top: 20px;
+	width: 30%;
+}
+
+#flowers {
+	background-color: #BC6E13;
+	width: 95%;
+	height: 70%;
+	border-radius: 17px;
+	margin-left: 2.5%;
+	margin-top: 2.5%;
+}
+
+#nutrition {
+	background-color: #147D6A;
+	width: 95%;
+	height: 70%;
+	border-radius: 17px;
+	margin-left: 2.5%;
+	margin-top: 2.5%;
+}
+
+#all-categories {
+	background-color: #76961A;
+	width: 95%;
+	height: 70%;
+	border-radius: 17px;
+	margin-left: 2.5%;
+	margin-top: 2.5%;
+}
+
+.footer {
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 99%;
+	height: 120px;
+	background-color: #00291D;
+	position: fixed;
+	flex-direction: row;
+	padding: 10px;
+}
+
+.footer-item {
+	margin-top: 50px;
+	margin-right: 37px;
+	margin-left: 37px;
+	color: white;
+}
+
+.heading {
+	color: white;
+	margin-left: 50px;
+	font-size: 20px;
+	float: left;
+	margin-top: 15px;
+}
+
+.sidebar {
+	left: 0;
+	top: 70px;
+	bottom: 0;
+	width: 55px;
+	height: 100%;
+	background-color: #6F6F6F;
+	position: fixed;
+	flex-direction: column;
+}
+
+.section {
+	left: 55px;
+	top: 70px;
+	bottom: 0;
+	width: 220px;
+	height: 100%;
+	background-color: #D9D9D9;
+	position: fixed;
+	flex-direction: column;
+	padding: 10px;
+}
+
+.sidebar-item {
+	width: 100%;
+}
+
+#myGarden {
+	background-color: #6B7A65;
+	width: 95%;
+	height: 70%;
+	border-radius: 17px;
+	margin-left: 2.5%;
+	margin-top: 2.5%;
+}
+
+.rectangle {
+    background-color: #FFC700;
+    position: fixed;
+    border-radius: 10px;
+}
+
+#canvas {
+	position: fixed;
+	margin-left: 500px;
+	margin-top: 70px;
+	width: 50%;
+	height: 50%;
+}
+
+.new-garden-green-zone-side {
+	background-color: #36AD89;
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	height: 100%;
+	width: 5%;
+}
+
+.new-garden-green-zone {
+	padding: 60px;
+	background-color: #36AD89;
+	box-shadow: 2px 2px 2px grey;
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	height: 87%;
+	width: 50%;
+	border-radius: 50px;
+	color: white;
+}
+
+#gardenName {
+	border: none;
+	border-bottom: 2px solid white;
+	background-color: transparent;
+	color: white;
+	margin-top: 40px;
+	font-size: 20px;
+	width: 70%;
+}
+
+#gardenLocation {
+	border: none;
+	border-bottom: 2px solid white;
+	background-color: transparent;
+	color: white;
+	margin-top: 40px;
+	font-size: 15px;
+	width: 60%;
+}
+
+#width {
+	border: none;
+  border-bottom: 2px solid white;
+  background-color: transparent;
+  color: white;
+  font-size: 15px;
+  width: 85px;
+  margin-bottom: 40px;
+  margin-top: 10px;
+}
+
+#height {
+	border: none;
+  border-bottom: 2px solid white;
+  background-color: transparent;
+  color: white;
+  font-size: 15px;
+  width: 85px;
+  margin-bottom: 40px;
+  margin-top: 10px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
+
+.nextButton {
+	padding: 7px;
+	border-radius: 10px;
+	border: none;
+	width: 12%;
+	height: 5%;
+	box-shadow: 2px 2px 2px grey;
+	cursor: pointer;
+}
+
+.cancelButton {
+	padding: 7px;
+	border-radius: 10px;
+	border: none;
+	width: 12%;
+	height: 5%;
+	background-color: transparent;
+	color: lightgrey;
+	cursor: pointer;
+}
+
+#purpose {
+	border: none;
+	border-bottom: 2px solid white;
+	background-color: transparent;
+	color: white;
+	margin-top: 40px;
+	font-size: 20px;
+	width: 70%;
+}
+
+#optionalParam2 {
+	border: none;
+	border-bottom: 2px solid white;
+	background-color: transparent;
+	color: white;
+	margin-top: 40px;
+	font-size: 15px;
+	width: 60%;
+}
+
+#numberBeddings {
+	border: none;
+	border-bottom: 2px solid white;
+	background-color: transparent;
+	color: white;
+	margin-top: 40px;
+	font-size: 15px;
+	width: 60%;
+}
