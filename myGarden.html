@@ -1,129 +1,47 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>MyGarden</title>
-	<link rel="stylesheet" href="css/style.css" />
-	<link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet'>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MyGarden</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- convergence api for real time editting-->
+    <!-- <script src="http://localhost:8000/client/rxjs.umd.min.js"></script>
+    <script src="http://localhost:8000/client/convergence.js"></script> -->
 </head>
+
 <body>
-	<div class="navbar">
-      <a href="index2.html"><img src="img/home.svg" id="nav-bar-icon-home"/></a>
-      <p class="heading">My Good Garden</p>
-      <img src="img/user.svg" id="nav-bar-notification-icon"/>
-      <button class="share-button">
+
+    <div class="navbar">
+        <a href="user-home.html"><img src="img/home.svg" id="nav-bar-icon-home" /></a>
+        <p class="heading">My Good Garden</p>
+        <img src="img/user.svg" id="nav-bar-notification-icon" />
+        <button class="share-button">
       	<b><p style="float: left; margin-left: 10px;margin-right: 10px;">Share</p></b>
       	<img src="img/share.svg" style="height: 25px; float: left;" />
       </button>
     </div>
 
     <div class="sidebar">
-    	<a onclick="bedding()"><img class="sidebar-item" src="img/beddingUnselected.svg" id="bedding"></a>
-    	<a onclick="seeds()"><img class="sidebar-item" src="img/seedPacketUnselected.svg" id="seedPackage"></a>
-    	<a onclick="calendar()"><img class="sidebar-item" src="img/calendarUnselected.svg" id="calendar"></a>
-    	<a onclick="more()"><img class="sidebar-item" src="img/moreUnselected.svg" id="more"></a>
+        <a onclick="bedding()"><img class="sidebar-item" src="img/beddingUnselected.svg" id="bedding"></a>
+        <a onclick="seeds()"><img class="sidebar-item" src="img/seedPacketUnselected.svg" id="seedPackage"></a>
+        <a onclick="calendar()"><img class="sidebar-item" src="img/calendarUnselected.svg" id="calendar"></a>
+        <a onclick="more()"><img class="sidebar-item" src="img/moreUnselected.svg" id="more"></a>
     </div>
 
     <div class="section" id="content_info"></div>
-
-    <div id='canvas'>
-    	<img style="width: 100%;" src="img/grid.png">
+    <div id="canvasWrapper">
+        <canvas id="overlay" width=500px height=500px></canvas>
+        <canvas id="grid" width="500px" height="500px"></canvas>
     </div>
-
-    <script type="text/javascript">
-    	i = 0;
-    	infoDiv = document.getElementById('content_info');
-    	seedPackage = document.getElementById('seedPackage');
-    	beddingPhoto = document.getElementById('bedding');
-    	calendarPhoto = document.getElementById('calendar');
-    	morePhoto = document.getElementById('more');
-    	function seeds() {
-    		infoDiv.innerHTML = `<p>My Seeds</p>`
-    		morePhoto.src = 'img/moreUnselected.svg'
-    		calendarPhoto.src = 'img/calendarUnselected.svg'
-    		beddingPhoto.src = 'img/beddingUnselected.svg'
-    		seedPackage.src = 'img/seedPacketSelected.svg'
-    	}
-    	function bedding() {
-    		infoDiv.innerHTML = `<p>Bedding</p>`
-    		morePhoto.src = 'img/moreUnselected.svg'
-    		calendarPhoto.src = 'img/calendarUnselected.svg'
-    		beddingPhoto.src = 'img/beddingSelected.svg'
-    		seedPackage.src = 'img/seedPacketUnselected.svg'
-    	}
-    	function calendar() {
-    		infoDiv.innerHTML = `<p>Calendar</p>`
-    		morePhoto.src = 'img/moreUnselected.svg'
-    		calendarPhoto.src = 'img/calendarSelected.svg'
-    		beddingPhoto.src = 'img/beddingUnselected.svg'
-    		seedPackage.src = 'img/seedPacketUnselected.svg'
-    	}
-    	function more() {
-    		infoDiv.innerHTML = `<p>More</p>`
-    		morePhoto.src = 'img/moreSelected.svg'
-    		calendarPhoto.src = 'img/calendarUnselected.svg'
-    		beddingPhoto.src = 'img/beddingUnselected.svg'
-    		seedPackage.src = 'img/seedPacketUnselected.svg'
-    	}
-
-    	function selectRectangle(id) {
-    		console.log(id)
-    	}
-
-    	initDraw(document.getElementById('canvas'));
-		function initDraw(canvas) {
-		    function setMousePosition(e) {
-		        var ev = e || window.event; //Moz || IE
-		        if (ev.pageX) { //Moz
-		            mouse.x = ev.pageX + window.pageXOffset;
-		            mouse.y = ev.pageY + window.pageYOffset;
-		        } else if (ev.clientX) { //IE
-		            mouse.x = ev.clientX + document.body.scrollLeft;
-		            mouse.y = ev.clientY + document.body.scrollTop;
-		        }
-		    };
-
-		    var mouse = {
-		        x: 0,
-		        y: 0,
-		        startX: 0,
-		        startY: 0
-		    };
-		    var element = null;
-
-		    canvas.onmousemove = function (e) {
-		        setMousePosition(e);
-		        if (element !== null) {
-		            element.style.width = Math.abs(mouse.x - mouse.startX) + 'px';
-		            element.style.height = Math.abs(mouse.y - mouse.startY) + 'px';
-		            element.style.left = (mouse.x - mouse.startX < 0) ? mouse.x + 'px' : mouse.startX + 'px';
-		            element.style.top = (mouse.y - mouse.startY < 0) ? mouse.y + 'px' : mouse.startY + 'px';
-		        }
-		    }
-
-		    canvas.onclick = function (e) {
-		        if (element !== null) {
-		            element = null;
-		            canvas.style.cursor = "default";
-		            console.log("finsihed.");
-		            document.getElementById('rectangle' + i.toString()).addEventListener("click", selectRectangle(i));
-		            i ++;
-		        } else {
-		            console.log("begun.");
-		            mouse.startX = mouse.x;
-		            mouse.startY = mouse.y;
-		            element = document.createElement('div');
-		            element.className = 'rectangle'
-		            element.setAttribute('id', 'rectangle' + i.toString());
-		            element.style.left = mouse.x + 'px';
-		            element.style.top = mouse.y + 'px';
-		            canvas.appendChild(element)
-		            canvas.style.cursor = "crosshair";
-		        }
-		    }
-
-		}
-    </script>
+    <div id="coordinate">
+        <p id="coord">hi</p>
+    </div>
+    <script src="./js/canvas.js" type="text/javascript"></script>
 </body>
+
 </html>
