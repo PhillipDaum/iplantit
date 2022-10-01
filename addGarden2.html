@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+<link rel="stylesheet" href="css/style.css" />
+	<link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet'>
+</head>
+<body>
+	<div class="new-garden-green-zone">
+		<div class="new-garden-green-zone-side"></div>
+		<h2>Step 2 of 2</h2>
+		<h1>What's your vision?</h1>
+		<select name="purpose" id="purpose">
+			<option value="0">Select your purpose:</option>
+		</select>
+		</br>
+		<input type="number" name="numberBeddings" placeholder="Enter number of beddings" id="numberBeddings">
+		</br>
+		<input type="text" name="optionalParam2" placeholder="Enter optional param2" id="optionalParam2">
+		</br>
+		</br>
+		</br>
+		<button class="nextButton" onclick="create()"><b>Create</b></button>
+		<button class="cancelButton" onclick="previous()">Previous</button>
+	</div>
+	<script type="text/javascript">
+		function create() {
+			window.open("index2.html", "_self")
+		}
+		function previous() {
+			window.open("addGarden.html", "_self")
+		}
+	</script>
+</body>
+</html>
