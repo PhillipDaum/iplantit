@@ -1,76 +1,143 @@
-let i = 0;
-let grid = document.getElementById('grid');
-let ctxG = grid.getContext("2d");
+let grid = $("#grid");
+let ctxG = grid[0].getContext("2d");
 
-let overlay = document.getElementById('overlay');
-let ctxO = overlay.getContext("2d");
+let coordinate = document.getElementById('coordinate');
+let coord = document.getElementById('coord');
+
+let beddings = []
+
 
 let infoDiv = document.getElementById('content_info');
 let seedPackage = document.getElementById('seedPackage');
 let beddingPhoto = document.getElementById('bedding');
 let calendarPhoto = document.getElementById('calendar');
 let morePhoto = document.getElementById('more');
-let coordinate = document.getElementById('coordinate');
-let coord = document.getElementById('coord');
 
-// calculate where the canvas is on the window
-// (used to help calculate mouseX/mouseY)
-var $canvas = $("#grid");
-var canvasOffset = $canvas.offset();
-var offsetX = canvasOffset.left;
-var offsetY = canvasOffset.top;
-var scrollX = $canvas.scrollLeft();
-var scrollY = $canvas.scrollTop();
+// Functions for side bar navication
+{
+    function seeds() {
+        infoDiv.innerHTML = `<p>My Seeds</p>`
+        morePhoto.src = 'img/moreUnselected.svg'
+        calendarPhoto.src = 'img/calendarUnselected.svg'
+        beddingPhoto.src = 'img/beddingUnselected.svg'
+        seedPackage.src = 'img/seedPacketSelected.svg'
+        rectPen();
+    }
 
-// this flage is true when the user is dragging the mouse
-var isDown = false;
+    function bedding() {
+        infoDiv.innerHTML = `<p>Bedding</p>`
+        morePhoto.src = 'img/moreUnselected.svg'
+        calendarPhoto.src = 'img/calendarUnselected.svg'
+        beddingPhoto.src = 'img/beddingSelected.svg'
+        seedPackage.src = 'img/seedPacketUnselected.svg'
+    }
 
-// these vars will hold the starting mouse position
-var startX;
-var startY;
+    function calendar() {
+        infoDiv.innerHTML = `<p>Calendar</p>`
+        morePhoto.src = 'img/moreUnselected.svg'
+        calendarPhoto.src = 'img/calendarSelected.svg'
+        beddingPhoto.src = 'img/beddingUnselected.svg'
+        seedPackage.src = 'img/seedPacketUnselected.svg'
+    }
 
-var prevStartX = 0;
-var prevStartY = 0;
-
-var prevWidth = 0;
-var prevHeight = 0;
-
-
-function seeds() {
-    infoDiv.innerHTML = `<p>My Seeds</p>`
-    morePhoto.src = 'img/moreUnselected.svg'
-    calendarPhoto.src = 'img/calendarUnselected.svg'
-    beddingPhoto.src = 'img/beddingUnselected.svg'
-    seedPackage.src = 'img/seedPacketSelected.svg'
+    function more() {
+        infoDiv.innerHTML = `<p>More</p>`
+        morePhoto.src = 'img/moreSelected.svg'
+        calendarPhoto.src = 'img/calendarUnselected.svg'
+        beddingPhoto.src = 'img/beddingUnselected.svg'
+        seedPackage.src = 'img/seedPacketUnselected.svg'
+    }
 }
 
-function bedding() {
-    infoDiv.innerHTML = `<p>Bedding</p>`
-    morePhoto.src = 'img/moreUnselected.svg'
-    calendarPhoto.src = 'img/calendarUnselected.svg'
-    beddingPhoto.src = 'img/beddingSelected.svg'
-    seedPackage.src = 'img/seedPacketUnselected.svg'
+
+var canvas = new fabric.Canvas('garden-canvas', {
+    selection: true,
+});
+let penInUse;
+// Allow drawing a rectangle
+function rectPen() {
+
+    let rect, isDown, origX, origY;
+    if (penInUse) return;
+    if (!penInUse) penInUse = true;
+
+    canvas.selection = false;
+    canvas.on('mouse:down', function(o) {
+        isDown = true;
+        var pointer = canvas.getPointer(o.e);
+        origX = pointer.x;
+        origY = pointer.y;
+        var pointer = canvas.getPointer(o.e);
+        rect = new fabric.Rect({
+            left: origX,
+            top: origY,
+            originX: 'left',
+            originY: 'top',
+            width: pointer.x - origX,
+            height: pointer.y - origY,
+            angle: 0,
+            fill: 'rgba(255,199,0,0.5)',
+            transparentCorners: false
+        });
+        canvas.add(rect);
+    });
+
+    canvas.on('mouse:move', function(o) {
+        if (!isDown) return;
+        var pointer = canvas.getPointer(o.e);
+
+        if (origX > pointer.x) {
+            rect.set({ left: Math.abs(pointer.x) });
+        }
+        if (origY > pointer.y) {
+            rect.set({ top: Math.abs(pointer.y) });
+        }
+
+        rect.set({ width: Math.abs(origX - pointer.x) });
+        rect.set({ height: Math.abs(origY - pointer.y) });
+        coordinate.style.backgroundColor = "orange";
+        coordinate.style.left = o.e.pageX + 'px';
+        coordinate.style.top = o.e.pageY - 20 + 'px';
+
+
+        // calculate the rectangle width/height based
+        // on starting vs current mouse position
+        var width = origX - pointer.x;
+        var height = origY - pointer.y;
+
+        // TODO: convert width and height to actual dimension
+        coord.innerText = width + "," + height;
+
+        canvas.renderAll();
+    });
+
+    canvas.on('mouse:up', function(o) {
+        isDown = false;
+        rect.setCoords();
+        rect.controls = {
+            ...fabric.Text.prototype.controls,
+            mtr: new fabric.Control({ visible: false })
+        }
+        canvas.off('mouse:down').off('mouse:move').off('mouse:up');
+        canvas.selection = true;
+
+        coordinate.style.backgroundColor = "transparent";
+        coord.innerText = "";
+        penInUse = false;
+    });
+
 }
 
-function calendar() {
-    infoDiv.innerHTML = `<p>Calendar</p>`
-    morePhoto.src = 'img/moreUnselected.svg'
-    calendarPhoto.src = 'img/calendarSelected.svg'
-    beddingPhoto.src = 'img/beddingUnselected.svg'
-    seedPackage.src = 'img/seedPacketUnselected.svg'
+function onObjectSelected(e) {
+    console.log(e.target.get('type'));
 }
+canvas.on('selection:created', function(o) {
+    console.log(canvas.getObjects());
+});
+canvas.on('selection:updated', function() {
+    console.log("selected2");
+});
 
-function more() {
-    infoDiv.innerHTML = `<p>More</p>`
-    morePhoto.src = 'img/moreSelected.svg'
-    calendarPhoto.src = 'img/calendarUnselected.svg'
-    beddingPhoto.src = 'img/beddingUnselected.svg'
-    seedPackage.src = 'img/seedPacketUnselected.svg'
-}
-
-function selectRectangle(id) {
-    console.log(id)
-}
 
 function drawGrid(context) {
     let width = context.canvas.clientWidth;
@@ -94,92 +161,4 @@ function drawGrid(context) {
     context.strokeStyle = "#ADD8E6";
     context.stroke();
 }
-
-
-function handleMouseDown(e) {
-    e.preventDefault();
-    e.stopPropagation();
-
-    // save the starting x/y of the rectangle
-    startX = parseInt(e.clientX - offsetX);
-    startY = parseInt(e.clientY - offsetY);
-
-    // set a flag indicating the drag has begun
-    isDown = true;
-}
-
-function handleMouseUp(e) {
-    e.preventDefault();
-    e.stopPropagation();
-
-    // the drag is over, clear the dragging flag
-    isDown = false;
-    ctxG.fillStyle = "#FFC700";
-    ctxG.fillRect(prevStartX, prevStartY, prevWidth, prevHeight);
-    coordinate.style.backgroundColor = "transparent";
-    coord.innerText = "";
-}
-
-function handleMouseOut(e) {
-    e.preventDefault();
-    e.stopPropagation();
-
-    // the drag is over, clear the dragging flag
-    isDown = false;
-}
-
-
-function handleMouseMove(e) {
-    e.preventDefault();
-    e.stopPropagation();
-
-    // if we're not dragging, just return
-    if (!isDown) {
-        return;
-    }
-
-    // get the current mouse position
-    mouseX = parseInt(e.clientX - offsetX);
-    mouseY = parseInt(e.clientY - offsetY);
-
-    // Put your mousemove stuff here
-    coordinate.style.backgroundColor = "orange";
-    coordinate.style.left = e.pageX + 'px';
-    coordinate.style.top = e.pageY - 15 + 'px';
-
-
-    // calculate the rectangle width/height based
-    // on starting vs current mouse position
-    var width = mouseX - startX;
-    var height = mouseY - startY;
-
-    // TODO: convert width and height to actual dimension
-    coord.innerText = width + "," + height;
-
-    // clear the canvas
-    ctxO.clearRect(0, 0, overlay.width, overlay.height);
-    ctxO.fillStyle = "#FFC700";
-    // draw a new rect from the start position 
-    // to the current mouse position
-    ctxO.fillRect(startX, startY, width, height);
-    prevStartX = startX;
-    prevStartY = startY;
-
-    prevWidth = width;
-    prevHeight = height;
-}
 drawGrid(ctxG);
-// listen for mouse events
-$("#grid").mousedown(function(e) {
-    handleMouseDown(e);
-});
-$("#grid").mousemove(function(e) {
-    handleMouseMove(e);
-});
-$("#grid").mouseup(function(e) {
-    handleMouseUp(e);
-});
-
-$("#grid").mouseout(function(e) {
-    handleMouseOut(e);
-});
