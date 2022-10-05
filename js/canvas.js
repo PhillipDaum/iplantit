@@ -130,8 +130,8 @@ function rectPen() {
         penInUse = false;
         canvas.defaultCursor = 'default';
 
-        let newBed = new Bedding(rect, 'a', 'b', 'c');
-        garden.beddings.push(newBed);
+
+        garden.beddings.push(rect);
         console.log(garden.beddings);
 
     });
