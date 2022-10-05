@@ -49,14 +49,16 @@ let morePhoto = document.getElementById('more');
     }
 }
 
+let garden = new Garden(100, 100, new Array(), 'weather', 'GA');
 
-var canvas = new fabric.Canvas('garden-canvas', {
+let canvas = new fabric.Canvas('garden-canvas', {
     selection: true,
 });
 let penInUse;
+
 // Allow drawing a rectangle
 function rectPen() {
-
+    canvas.defaultCursor = 'crosshair';
     let rect, isDown, origX, origY;
     if (penInUse) return;
     if (!penInUse) penInUse = true;
@@ -68,6 +70,7 @@ function rectPen() {
         origX = pointer.x;
         origY = pointer.y;
         var pointer = canvas.getPointer(o.e);
+
         rect = new fabric.Rect({
             left: origX,
             top: origY,
@@ -79,6 +82,7 @@ function rectPen() {
             fill: 'rgba(255,199,0,0.5)',
             transparentCorners: false
         });
+
         canvas.add(rect);
     });
 
@@ -124,18 +128,23 @@ function rectPen() {
         coordinate.style.backgroundColor = "transparent";
         coord.innerText = "";
         penInUse = false;
+        canvas.defaultCursor = 'default';
+
+        let newBed = new Bedding(rect, 'a', 'b', 'c');
+        garden.beddings.push(newBed);
+        console.log(garden.beddings);
+
     });
 
 }
 
-function onObjectSelected(e) {
-    console.log(e.target.get('type'));
-}
+
 canvas.on('selection:created', function(o) {
-    console.log(canvas.getObjects());
+    console.log(canvas.getActiveObject());
+
 });
 canvas.on('selection:updated', function() {
-    console.log("selected2");
+    console.log(canvas.getActiveObject());
 });
 
 
