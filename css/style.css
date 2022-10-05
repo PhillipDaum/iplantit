@@ -135,6 +135,18 @@ body {
     padding: 10px;
 }
 
+.footer2 {
+    left: 0;
+    right: 0;
+    margin-bottom: 0px;
+    width: 99%;
+    height: 120px;
+    background-color: #00291D;
+    position: relative;
+    flex-direction: row;
+    padding: 10px;
+}
+
 .footer-item {
     margin-top: 50px;
     margin-right: 37px;
@@ -348,4 +360,97 @@ canvas {
     margin-top: 40px;
     font-size: 15px;
     width: 60%;
+}
+
+input[type="search"] {
+    outline: 0;
+    padding: 0 1.6rem;
+    border-radius: 10px;
+    border: none;
+    position: relative;
+    float: right;
+    margin-top: 9px;
+    background-color: white;
+    color: black;
+    height: 30px;
+    text-align: center;
+}
+
+input[type="search"]::placeholder {
+    opacity: .5;
+    color: black;
+}
+
+#login-button {
+    float: right;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    color: white;
+    margin-right: 40px;
+}
+
+#search-button {
+    float: right;
+    margin-top: 9px;
+    padding: 2px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 20px;
+    height: 30px;
+    background-color: lightblue;
+    margin-left: 5px;
+}
+
+#search-icon {
+    height: 25px;
+}
+
+
+#content-main-page {
+    margin-top: 150px;
+    margin-left: 100px;
+}
+
+#start-gardening-btn {
+    padding: 15px;
+    font-size: 20px;
+    color: white;
+    background-color: #039C77;
+    border-radius: 10px;
+    border: none;
+    width: 250px;
+    box-shadow: 2px 2px 2px grey;
+}
+
+#watch-demo-btn {
+    background-color: transparent;
+    border: none;
+    width: 150px;
+}
+
+.main-page-section {
+    background-color: white;
+    padding: 50px;
+    box-shadow: 2px 2px 2px grey;
+    margin-top: 45px;
+    width: 85%;
+    border-radius: 30px;
+}
+
+.step {
+    float: left;
+    padding: 2px;
+    width: 190px;
+    border-radius: 100%;
+    background-color:#3944F7;
+}
+
+.step-title {
+    color: white;
+    font-size: 80px;
+}
+
+.round-number {
+    width: 40%;
 }
