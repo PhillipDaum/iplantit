@@ -71,7 +71,7 @@ function rectPen() {
         origY = pointer.y;
         var pointer = canvas.getPointer(o.e);
 
-        rect = new fabric.Rect({
+        rect = new Bedding('a', 'b', {
             left: origX,
             top: origY,
             originX: 'left',
