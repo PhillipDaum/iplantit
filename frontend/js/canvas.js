@@ -130,7 +130,6 @@ function rectPen() {
         penInUse = false;
         canvas.defaultCursor = 'default';
 
-
         garden.beddings.push(rect);
         console.log(garden.beddings);
 

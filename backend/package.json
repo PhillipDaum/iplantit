@@ -1,0 +1,23 @@
+{
+  "name": "iplantit",
+  "version": "1.0.0",
+  "description": "- This is the working title of our project. It is on the pathway to become a simple progressive web application that make food garden planning fun and easy! - These first rounds of development are for the <a href=\"https://callforcode-platform.bemyapp.com\">Call for Code<a> hackathon - Looking for team-members! some of the things we need:     - Relational Databse Skills     - API integrations skills     - Front-end development",
+  "main": "js/backend/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PhillipDaum/iplantit.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PhillipDaum/iplantit/issues"
+  },
+  "homepage": "https://github.com/PhillipDaum/iplantit#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "ibm_db": "^3.0.0"
+  }
+}
