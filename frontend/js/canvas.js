@@ -13,6 +13,7 @@ let beddingPhoto = document.getElementById('bedding');
 let calendarPhoto = document.getElementById('calendar');
 let morePhoto = document.getElementById('more');
 
+let penInUse = false;
 // Functions for side bar navication
 {
     function seeds() {
@@ -21,7 +22,7 @@ let morePhoto = document.getElementById('more');
         calendarPhoto.src = 'img/calendarUnselected.svg'
         beddingPhoto.src = 'img/beddingUnselected.svg'
         seedPackage.src = 'img/seedPacketSelected.svg'
-        rectPen();
+
     }
 
     function bedding() {
@@ -30,6 +31,15 @@ let morePhoto = document.getElementById('more');
         calendarPhoto.src = 'img/calendarUnselected.svg'
         beddingPhoto.src = 'img/beddingSelected.svg'
         seedPackage.src = 'img/seedPacketUnselected.svg'
+        if (penInUse) {
+            penInUse = false;
+            resetCanvas();
+
+        } else {
+            penInUse = true;
+            rectPen();
+        }
+
     }
 
     function calendar() {
@@ -54,41 +64,97 @@ let garden = new Garden(100, 100, new Array(), 'weather', 'GA');
 let canvas = new fabric.Canvas('garden-canvas', {
     selection: true,
 });
-let penInUse;
 
 // Allow drawing a rectangle
 function rectPen() {
-    canvas.defaultCursor = 'crosshair';
-    let rect, isDown, origX, origY;
-    if (penInUse) return;
-    if (!penInUse) penInUse = true;
 
+    let canDraw = true;
+    let drawing = false;
+
+    var rect;
+    let origX;
+    let origY;
+
+    // disable all selections
+    canvas.discardActiveObject().renderAll();
     canvas.selection = false;
-    canvas.on('mouse:down', function(o) {
-        isDown = true;
-        var pointer = canvas.getPointer(o.e);
-        origX = pointer.x;
-        origY = pointer.y;
-        var pointer = canvas.getPointer(o.e);
+    canvas.forEachObject(function(o) {
+        o.selectable = false;
+        o.hoverCursor = "default";
+    });
 
-        rect = new Bedding('a', 'b', {
-            left: origX,
-            top: origY,
-            originX: 'left',
-            originY: 'top',
-            width: pointer.x - origX,
-            height: pointer.y - origY,
-            angle: 0,
-            fill: 'rgba(255,199,0,0.5)',
-            transparentCorners: false
+    // style the cursor
+    canvas.defaultCursor = 'crosshair';
+
+    canvas.on('mouse:down', function(o) {
+        let pointer = canvas.getPointer(o.e);
+        canvas.forEachObject(function(o) {
+            if (!canDraw) return;
+            if (Overlap(o, pointer)) {
+                console.log('attempting to draw rect on rect');
+                canDraw = false;
+            }
         });
 
-        canvas.add(rect);
+        if (canDraw) {
+
+            origX = pointer.x;
+            origY = pointer.y;
+            drawing = true;
+
+            rect = new Bedding('a', 'b', {
+                left: origX,
+                top: origY,
+                originX: 'left',
+                originY: 'top',
+                width: pointer.x - origX,
+                height: pointer.y - origY,
+                angle: 0,
+                fill: 'rgba(255,199,0,0.5)',
+                transparentCorners: false
+            });
+
+            canvas.add(rect);
+        }
+
     });
 
     canvas.on('mouse:move', function(o) {
-        if (!isDown) return;
+        if (!drawing) return;
         var pointer = canvas.getPointer(o.e);
+
+        // restrict overlap rects
+        // canvas.forEachObject(function(o) {
+        //     if (o == rect) return;
+
+        //     if (Overlap(o, pointer)) {
+        //         console.log("hit a rect border!");
+        //         if (origY >= o.top &&
+        //             origY <= o.top + o.height) {
+        //             if (origX - pointer.x < 0) {
+
+        //                 pointer.x = o.left;
+        //                 // lock
+        //             } else {
+
+        //                 pointer.x = o.left + o.width;
+        //                 // lock
+        //             }
+
+        //         }
+        //         if (origX >= o.left &&
+        //             origX <= o.left + o.width) {
+        //             if (origY - pointer.y < 0) {
+        //                 pointer.y = o.top;
+        //                 // lock
+        //             } else {
+        //                 pointer.y = o.top + o.height;
+        //                 // lock
+        //             }
+        //         }
+
+        //     }
+        // });
 
         if (origX > pointer.x) {
             rect.set({ left: Math.abs(pointer.x) });
@@ -103,7 +169,6 @@ function rectPen() {
         coordinate.style.left = o.e.pageX + 'px';
         coordinate.style.top = o.e.pageY - 20 + 'px';
 
-
         // calculate the rectangle width/height based
         // on starting vs current mouse position
         var width = origX - pointer.x;
@@ -116,26 +181,53 @@ function rectPen() {
     });
 
     canvas.on('mouse:up', function(o) {
-        isDown = false;
+        if (!canDraw) {
+            canDraw = true;
+            return;
+        }
+
+        // reset flags
+        penInUse = false;
+        resetCanvas();
+
         rect.setCoords();
         rect.controls = {
             ...fabric.Text.prototype.controls,
             mtr: new fabric.Control({ visible: false })
         }
-        canvas.off('mouse:down').off('mouse:move').off('mouse:up');
-        canvas.selection = true;
 
         coordinate.style.backgroundColor = "transparent";
         coord.innerText = "";
-        penInUse = false;
-        canvas.defaultCursor = 'default';
 
         garden.beddings.push(rect);
         console.log(garden.beddings);
-
     });
 
 }
+
+function resetCanvas() {
+    // reset canvas
+    canvas.off('mouse:down').off('mouse:move').off('mouse:up');
+
+    canvas.selection = true;
+    canvas.forEachObject(function(o) {
+        o.selectable = true;
+        o.hoverCursor = "move";
+    });
+    canvas.defaultCursor = 'default';
+
+}
+
+function Overlap(rect, pointer) {
+    if (pointer.y >= rect.top &&
+        pointer.y <= rect.top + rect.height &&
+        pointer.x >= rect.left &&
+        pointer.x <= rect.left + rect.width) {
+        return true;
+    }
+    return false;
+}
+
 
 
 canvas.on('selection:created', function(o) {
