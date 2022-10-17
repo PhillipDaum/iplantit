@@ -1,6 +1,6 @@
 // getting started with this initial array.
 // the spacing is like a radius around the plant as a centerpoint. It is in inches.
-const plants = [];
+var plants = [];
 plants[0] = { name: "sweet basil", spacing: 1, companions: "", icon: "<i class=\"fa-solid text-success fa-leaf\"></i>" };
 plants[1] = { name: "cherry tomato", spacing: 16, companions: "", icon: "<i class=\"fa-solid text-danger fa-circle\"></i>" };
 plants[2] = { name: "serrano pepper", spacing: 6, companions: "", icon: "<i class=\"fa-solid text-success fa-pepper-hot\"></i>" };
@@ -13,15 +13,13 @@ plants[8] = { name: "eggplant", spacing: 2, companions: "", icon: "<i class=\"fa
 plants[9] = { name: "curly kale", spacing: 9, companions: "", icon: "<i class=\"fa-solid fa-certificate\"></i>" };
 plants[10] = { name: "carrot", spacing: 9, companions: "", icon: "<i class=\"fa-solid text-warning fa-carrot\"></i>" };
 
-
 // initial function to make the garden output
 function makeGarden() {
     //submit the user data
     //taget the two boxes, take the numbers from it
-    let length = document.getElementById
+    var length = document.getElementById;
 
-    let width = document.getElementById
-
+    var width = document.getElementById;
 
     // go to the next page
     window.open('output.html', '_self');
@@ -29,17 +27,16 @@ function makeGarden() {
     // draw the rectangle using those numbers
     // it will be a grid of one inch squares. 1 in = 10 px
     // we should maybe add a little bit for the outline width
-    document.createCanvas
-        // width = width*10
-        // length = length*10
-        // style="border:1px solid #000000;">
+    document.createCanvas;
+    // width = width*10
+    // length = length*10
+    // style="border:1px solid #000000;">
 
 
     // it will take the best answer from the array of what to plant
     // this part may be a little bit harder
 
     // it will print all of the icons inside of it
-
 }
 
 // first take the space of the garden

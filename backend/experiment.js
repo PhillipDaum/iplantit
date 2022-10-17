@@ -15,7 +15,7 @@ ibmdb.open(connStr, function(err, connection) {
     }
 
     // GET
-    connection.query("select * from PERSONS", function(err1, data) {
+    connection.query("DROP TABLE IF EXISTS users;CREATE TABLE users (fname char(10) NOT NULL,lname char(10) NOT NULL,uname char(10) NOT NULL,PRIMARY KEY (uname));", function(err1, data) {
         if (err1) console.log(err1);
         else console.log(data);
         connection.close(function(err2) {

@@ -6,8 +6,9 @@ let coord = document.getElementById('coord');
 
 let beddings = []
 
-
+var sideBarRoot = ReactDOM.createRoot(document.getElementById('content_info'));
 let infoDiv = document.getElementById('content_info');
+
 let seedPackage = document.getElementById('seedPackage');
 let beddingPhoto = document.getElementById('bedding');
 let calendarPhoto = document.getElementById('calendar');
@@ -16,17 +17,9 @@ let morePhoto = document.getElementById('more');
 let penInUse = false;
 // Functions for side bar navication
 {
-    function seeds() {
-        infoDiv.innerHTML = `<p>My Seeds</p>`
-        morePhoto.src = 'img/moreUnselected.svg'
-        calendarPhoto.src = 'img/calendarUnselected.svg'
-        beddingPhoto.src = 'img/beddingUnselected.svg'
-        seedPackage.src = 'img/seedPacketSelected.svg'
-
-    }
 
     function bedding() {
-        infoDiv.innerHTML = `<p>Bedding</p>`
+        sideBarRoot.render(beddingInfo);
         morePhoto.src = 'img/moreUnselected.svg'
         calendarPhoto.src = 'img/calendarUnselected.svg'
         beddingPhoto.src = 'img/beddingSelected.svg'
@@ -42,20 +35,32 @@ let penInUse = false;
 
     }
 
+    function seeds() {
+        // infoDiv.innerHTML = `<p>My Seeds</p>`
+        morePhoto.src = 'img/moreUnselected.svg'
+        calendarPhoto.src = 'img/calendarUnselected.svg'
+        beddingPhoto.src = 'img/beddingUnselected.svg'
+        seedPackage.src = 'img/seedPacketSelected.svg'
+        sideBarRoot.render(seedInfo);
+
+    }
+
     function calendar() {
-        infoDiv.innerHTML = `<p>Calendar</p>`
         morePhoto.src = 'img/moreUnselected.svg'
         calendarPhoto.src = 'img/calendarSelected.svg'
         beddingPhoto.src = 'img/beddingUnselected.svg'
         seedPackage.src = 'img/seedPacketUnselected.svg'
+        sideBarRoot.render(timeInfo);
+
     }
 
     function more() {
-        infoDiv.innerHTML = `<p>More</p>`
         morePhoto.src = 'img/moreSelected.svg'
         calendarPhoto.src = 'img/calendarUnselected.svg'
         beddingPhoto.src = 'img/beddingUnselected.svg'
         seedPackage.src = 'img/seedPacketUnselected.svg'
+        sideBarRoot.render(moreInfo);
+
     }
 }
 
