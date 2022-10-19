@@ -1,0 +1,107 @@
+p {
+    font-family: 'Karla';
+}
+
+
+/* Footer components */
+
+.footer {
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: #00291D;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 5%;
+}
+
+.footer-item {
+    margin-top: 50px;
+    margin-right: 37px;
+    margin-left: 37px;
+    color: white;
+}
+
+
+/* Header Components */
+
+.navBar {
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    background-color: #36AD89;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    align-items: center;
+    vertical-align: bottom;
+    z-index: 100;
+}
+
+#navBarLogo {
+    margin-right: auto;
+    height: 100%;
+    margin-left: 5%;
+}
+
+.navBarIcons {
+    margin-left: auto;
+    margin-right: 3%;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 10%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.navBarIcon {
+    outline: 0;
+    border: none;
+    background-color: transparent;
+    padding-right: 2%;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* gardenPreviewCard component */
+
+.gardenPreviewCard {
+    box-shadow: 0px 5px 7px rgb(178, 178, 178);
+    text-align: center;
+    padding: 2px;
+    float: left;
+    background-color: white;
+    border-radius: 17px;
+    width: 350px;
+    height: 200px;
+    transition: .2s ease-in-out 0s;
+    position: relative;
+    margin-right: 3%;
+    margin-bottom: 3%;
+}
+
+.gardenPreviewCard:hover {
+    transform: scale(1.05);
+}
+
+#gardenPreviewWindow {
+    width: 95%;
+    height: 70%;
+    border-radius: 17px 17px 0 0;
+    margin-left: 2.5%;
+    margin-top: 2.5%;
+    position: relative;
+}
+
+.addIcon {
+    height: 70px;
+    color: white;
+    position: absolute;
+    top: 50%;
+    margin-top: -35px;
+    margin-left: -35px;
+}

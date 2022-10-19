@@ -1,0 +1,249 @@
+/* Page 3 */
+
+.share-button {
+    float: right;
+    margin-top: 7px;
+    height: 35px;
+    width: 100px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 2px 2px 2px black;
+    margin-right: 40px;
+    text-align: center;
+    line-height: 2px;
+}
+
+#title {
+    font-size: 25px;
+    margin-top: 120px;
+    margin-left: 50px;
+}
+
+#title2 {
+    font-size: 25px;
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+.footer-item {
+    margin-top: 50px;
+    margin-right: 37px;
+    margin-left: 37px;
+    color: white;
+}
+
+.heading {
+    color: white;
+    margin-left: 50px;
+    font-size: 20px;
+    float: left;
+    margin-top: 15px;
+}
+
+.sidebar {
+    left: 0;
+    top: 70px;
+    bottom: 0;
+    width: 55px;
+    height: 100%;
+    background-color: #6F6F6F;
+    position: fixed;
+    flex-direction: column;
+}
+
+.section {
+    left: 55px;
+    top: 70px;
+    bottom: 0;
+    width: 220px;
+    height: 100%;
+    background-color: #D9D9D9;
+    position: fixed;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.sidebar-item {
+    width: 100%;
+}
+
+.rectangle {
+    background-color: #FFC700;
+    position: fixed;
+    border-radius: 10px;
+}
+
+canvas {
+    position: absolute;
+}
+
+#canvasWrapper {
+    margin-left: 400px;
+    margin-top: 100px;
+    position: relative;
+}
+
+#coordinate {
+    position: absolute;
+    height: 15px;
+    width: 45px;
+    border-radius: 6px;
+    text-align: center;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    padding: 2px;
+}
+
+#coord {
+    font-size: 1px;
+    color: white;
+}
+
+.new-garden-green-zone-side {
+    background-color: #36AD89;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 5%;
+}
+
+.new-garden-green-zone {
+    padding: 60px;
+    background-color: #36AD89;
+    box-shadow: 2px 2px 2px grey;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    height: 87%;
+    width: 50%;
+    border-radius: 50px;
+    color: white;
+}
+
+#gardenName {
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: transparent;
+    color: white;
+    margin-top: 40px;
+    font-size: 20px;
+    width: 70%;
+}
+
+#gardenLocation {
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: transparent;
+    color: white;
+    margin-top: 40px;
+    font-size: 15px;
+    width: 60%;
+}
+
+#width {
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: transparent;
+    color: white;
+    font-size: 15px;
+    width: 85px;
+    margin-bottom: 40px;
+    margin-top: 10px;
+}
+
+#height {
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: transparent;
+    color: white;
+    font-size: 15px;
+    width: 85px;
+    margin-bottom: 40px;
+    margin-top: 10px;
+}
+
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1;
+    /* Firefox */
+}
+
+.nextButton {
+    padding: 7px;
+    border-radius: 10px;
+    border: none;
+    width: 12%;
+    height: 5%;
+    box-shadow: 2px 2px 2px grey;
+    cursor: pointer;
+}
+
+.cancelButton {
+    padding: 7px;
+    border-radius: 10px;
+    border: none;
+    width: 12%;
+    height: 5%;
+    background-color: transparent;
+    color: lightgrey;
+    cursor: pointer;
+}
+
+#purpose {
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: transparent;
+    color: white;
+    margin-top: 40px;
+    font-size: 20px;
+    width: 70%;
+}
+
+#optionalParam2 {
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: transparent;
+    color: white;
+    margin-top: 40px;
+    font-size: 15px;
+    width: 60%;
+}
+
+#numberBeddings {
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: transparent;
+    color: white;
+    margin-top: 40px;
+    font-size: 15px;
+    width: 60%;
+}
+
+.input {
+    position: relative;
+    float: right;
+}
+
+.step {
+    float: left;
+    padding: 2px;
+    width: 190px;
+    border-radius: 100%;
+    background-color: #3944F7;
+}
+
+.step-title {
+    color: white;
+    font-size: 80px;
+}
+
+.round-number {
+    width: 40%;
+}
