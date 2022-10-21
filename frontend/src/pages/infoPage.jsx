@@ -8,7 +8,7 @@ import {Footer} from '../components/ui'
 import circle1 from '../img/1_round.png';
 import circle2 from '../img/2_round.png';
 import circle3 from '../img/3_round.png';
-import {Routes, Route, useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 
 function InfoPage() {
 

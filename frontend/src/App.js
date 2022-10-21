@@ -1,8 +1,7 @@
 import './App.css';
 import InfoPage from './pages/infoPage';
 import UserHomePage from './pages/userHomePage';
-import AddGardenPage1 from './pages/addGardenPage1';
-import AddGardenPage2 from './pages/addGardenPage2';
+import  {AddGardenPage1, AddGardenPage2} from './pages/addGardenPage';
 import GardenEditorPage from './pages/gardenEditorPage';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {

@@ -1,17 +1,20 @@
 import React, {Component} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {solid, regular, brands, icon} from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
-import Box from '@mui/material/Box';
-import Input from '@mui/material/Input';
-import InputLabel from '@mui/material/InputLabel';
-import InputAdornment from '@mui/material/InputAdornment';
-import FormControl from '@mui/material/FormControl';
-import TextField from '@mui/material/TextField';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import circle1 from '../img/1_round.png';
 import logo from '../img/logo-draft.png';
 import './ui.css'
-import {Routes, Route, useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
+
+
+import bedding from '../img/beddingSelected.svg';
+import beddingU from '../img/beddingUnselected.svg';
+import seed from '../img/logo-draft.png'
+import seedU from '../img/seeds-svgrepo-com.svg';
+import calendar from '../img/calendarSelected.svg';
+import calendarU from '../img/calendarUnselected.svg';
+import more from '../img/moreSelected.svg';
+import moreU from '../img/moreUnselected.svg';
+//import * as util from '../utils/canvas.js'
 
 const Footer = () => (
   <div className="footer">
@@ -62,7 +65,7 @@ function GardenPrevieCard(props) {
   };
 
   const navigateToCreateGarden = () => {
-    console.log('go to existing garden');
+    console.log('go create a garden');
     navigate('/add-garden-1')
   };
 
@@ -87,5 +90,7 @@ function GardenPrevieCard(props) {
     </div>
   );
 }
+
+
 
 export {LoggedInHeader, Footer, GardenPrevieCard}

@@ -21,6 +21,7 @@
 #nav-bar-icon {
     margin-right: auto;
     height: 100%;
+    margin-left: 5%;
 }
 
 #searchBar {
@@ -114,6 +115,7 @@
     width: 50%;
     box-shadow: 2px 2px 2px grey;
     transition: .2s ease-in-out 0s;
+    cursor: pointer;
 }
 
 .startGardeningBtn:hover {
@@ -180,6 +182,10 @@
     border-radius: 30px;
     display: flex;
     flex-direction: column;
+}
+
+.round-number {
+    width: 40%;
 }
 
 .stepCards {

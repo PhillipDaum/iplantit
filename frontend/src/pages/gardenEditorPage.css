@@ -1,0 +1,114 @@
+.gardenEditorPage {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.editorWrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.section {
+    margin-top: 70px;
+    width: 220px;
+    background-color: #D9D9D9;
+    flex-direction: column;
+    padding: 10px;
+}
+
+#canvasWrapper {
+    margin-left: 5%;
+    margin-top: 100px;
+    position: relative;
+}
+
+#grid {
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+#garden-canvas {
+    /* background-color: #FFC700; */
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+.share-button {
+    float: right;
+    margin-top: 7px;
+    height: 35px;
+    width: 100px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 2px 2px 2px black;
+    margin-right: 40px;
+    text-align: center;
+    line-height: 2px;
+}
+
+#title {
+    font-size: 25px;
+    margin-top: 120px;
+    margin-left: 50px;
+}
+
+#title2 {
+    font-size: 25px;
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+.footer-item {
+    margin-top: 50px;
+    margin-right: 37px;
+    margin-left: 37px;
+    color: white;
+}
+
+.heading {
+    color: white;
+    margin-left: 50px;
+    font-size: 20px;
+    float: left;
+    margin-top: 15px;
+}
+
+#coordinate {
+    position: absolute;
+    height: 15px;
+    width: 45px;
+    border-radius: 6px;
+    text-align: center;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    padding: 2px;
+}
+
+#coord {
+    font-size: 1px;
+    color: white;
+}
+
+#purpose {
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: transparent;
+    color: white;
+    margin-top: 40px;
+    font-size: 20px;
+    width: 70%;
+}
+
+.input {
+    position: relative;
+    float: right;
+}

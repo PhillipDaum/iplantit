@@ -1,0 +1,114 @@
+/* Page 3 and 4 */
+
+.addGardenPage {
+    display: flex;
+    flex-direction: row;
+    overflow-y: hidden;
+}
+
+.new-garden-green-zone {
+    padding-left: 10%;
+    padding-right: 5%;
+    background-color: #36AD89;
+    box-shadow: 2px 0 2px rgb(189, 189, 189);
+    position: absolute;
+    width: 35%;
+    border-radius: 0 50px 50px 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: flex-start;
+}
+
+.bigField {
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: transparent;
+    color: white;
+    font-size: 20px;
+    width: 70%;
+    margin-top: 10%;
+}
+
+.smallField {
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: transparent;
+    color: white;
+    font-size: 15px;
+    width: 60%;
+    margin-top: 5%;
+}
+
+.contentGroup {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: baseline;
+    height: 5%;
+}
+
+.nextButton {
+    padding: 7px;
+    border-radius: 10px;
+    border: none;
+    width: 80px;
+    height: 100%;
+    box-shadow: 2px 2px 2px grey;
+    cursor: pointer;
+    transition: .2s ease-in-out 0s;
+    margin-right: 4%;
+}
+
+.nextButton:hover {
+    transform: scale(1.15);
+}
+
+.dimensionField {
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: transparent;
+    color: white;
+    font-size: 15px;
+    width: 17%;
+    margin-bottom: 40px;
+    margin-top: 10px;
+}
+
+.cancelButton {
+    padding: 7px;
+    border-radius: 10px;
+    border: none;
+    width: 12%;
+    height: 5%;
+    background-color: transparent;
+    color: rgb(238, 238, 238);
+    cursor: pointer;
+}
+
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1;
+    font-size: '1vw'
+    /* Firefox */
+}
+
+@media screen and (max-width: 1000px) {
+    .new-garden-green-zone {
+        padding-left: 10%;
+        padding-right: 5%;
+        background-color: #36AD89;
+        box-shadow: 2px 0 2px rgb(189, 189, 189);
+        position: absolute;
+        width: 350px;
+        border-radius: 0 50px 50px 0;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        align-items: flex-start;
+    }
+}
