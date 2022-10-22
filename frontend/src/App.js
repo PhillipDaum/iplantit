@@ -4,6 +4,7 @@ import UserHomePage from './pages/userHomePage';
 import  {AddGardenPage1, AddGardenPage2} from './pages/addGardenPage';
 import GardenEditorPage from './pages/gardenEditorPage';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 function App() {
   return (
     <div className="App">
@@ -18,6 +19,7 @@ function App() {
     </BrowserRouter>
     </div>
   );
+  
 }
 
 export default App;

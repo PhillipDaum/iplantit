@@ -1,6 +1,7 @@
 // A garden object stores everything about the environment
 // contains all the parameter to give a prediction
-class Garden {
+import { fabric } from "fabric";
+export class Garden {
     constructor(w, h, beddings, weather, location) {
         this.width = w;
         this.height = h;
@@ -9,7 +10,7 @@ class Garden {
 }
 
 // A bedding object stores all data about a specific bedding
-class Bedding extends fabric.Rect {
+export class Bedding extends fabric.Rect {
     constructor(plants, soil, argmap) {
         super(argmap);
         this.plants = plants;
@@ -18,7 +19,7 @@ class Bedding extends fabric.Rect {
 }
 
 // represents a plant object, can be parsed from database
-class Plant {
+export class Plant {
     constructor(name, spacing, companions, icon) {
         this.name = name;
         this.spacing = spacing;
