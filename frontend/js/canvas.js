@@ -7,7 +7,7 @@ let coord = document.getElementById('coord');
 let beddings = []
 
 var sideBarRoot = ReactDOM.createRoot(document.getElementById('content_info'));
-let infoDiv = document.getElementById('content_info');
+
 
 let seedPackage = document.getElementById('seedPackage');
 let beddingPhoto = document.getElementById('bedding');
@@ -128,38 +128,7 @@ function rectPen() {
         if (!drawing) return;
         var pointer = canvas.getPointer(o.e);
 
-        // restrict overlap rects
-        // canvas.forEachObject(function(o) {
-        //     if (o == rect) return;
 
-        //     if (Overlap(o, pointer)) {
-        //         console.log("hit a rect border!");
-        //         if (origY >= o.top &&
-        //             origY <= o.top + o.height) {
-        //             if (origX - pointer.x < 0) {
-
-        //                 pointer.x = o.left;
-        //                 // lock
-        //             } else {
-
-        //                 pointer.x = o.left + o.width;
-        //                 // lock
-        //             }
-
-        //         }
-        //         if (origX >= o.left &&
-        //             origX <= o.left + o.width) {
-        //             if (origY - pointer.y < 0) {
-        //                 pointer.y = o.top;
-        //                 // lock
-        //             } else {
-        //                 pointer.y = o.top + o.height;
-        //                 // lock
-        //             }
-        //         }
-
-        //     }
-        // });
 
         if (origX > pointer.x) {
             rect.set({ left: Math.abs(pointer.x) });

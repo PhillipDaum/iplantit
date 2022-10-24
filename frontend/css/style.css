@@ -3,6 +3,15 @@ body {
     font-size: 22px;
 }
 
+#myGarden {
+    background-color: #6B7A65;
+    width: 95%;
+    height: 70%;
+    border-radius: 17px;
+    margin-left: 2.5%;
+    margin-top: 2.5%;
+}
+
 .navbar {
     left: 0;
     right: 0;
@@ -160,82 +169,6 @@ body {
     font-size: 20px;
     float: left;
     margin-top: 15px;
-}
-
-.sidebar {
-    left: 0;
-    top: 70px;
-    bottom: 0;
-    width: 55px;
-    height: 100%;
-    background-color: #6F6F6F;
-    position: fixed;
-    flex-direction: column;
-}
-
-.section {
-    left: 55px;
-    top: 70px;
-    bottom: 0;
-    width: 220px;
-    height: 100%;
-    background-color: #D9D9D9;
-    position: fixed;
-    flex-direction: column;
-}
-
-.sidebar-item {
-    width: 100%;
-}
-
-.sidebar-content {
-    background-color: #147D6A;
-    height: 100%;
-    margin: 10px;
-}
-
-#myGarden {
-    background-color: #6B7A65;
-    width: 95%;
-    height: 70%;
-    border-radius: 17px;
-    margin-left: 2.5%;
-    margin-top: 2.5%;
-}
-
-.rectangle {
-    background-color: #FFC700;
-    position: fixed;
-    border-radius: 10px;
-}
-
-canvas {
-    position: absolute;
-}
-
-#canvasWrapper {
-    margin-left: 400px;
-    margin-top: 100px;
-    position: relative;
-}
-
-#coordinate {
-    position: absolute;
-    height: 15px;
-    width: 45px;
-    border-radius: 6px;
-    text-align: center;
-    pointer-events: none;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
-    padding: 2px;
-}
-
-#coord {
-    font-size: 1px;
-    color: white;
 }
 
 .new-garden-green-zone-side {
@@ -457,6 +390,70 @@ input[type="search"]::placeholder {
 
 .round-number {
     width: 40%;
+}
+
+
+/* ========== Everything below is for page 5 !! ===========*/
+
+.sidebar {
+    left: 0;
+    top: 70px;
+    bottom: 0;
+    width: 55px;
+    height: 100%;
+    background-color: #6F6F6F;
+    position: fixed;
+    flex-direction: column;
+}
+
+.section {
+    left: 55px;
+    top: 70px;
+    bottom: 0;
+    width: 220px;
+    height: 100%;
+    background-color: #D9D9D9;
+    position: fixed;
+    flex-direction: column;
+}
+
+.sidebar-item {
+    width: 100%;
+}
+
+.sidebar-content {
+    background-color: #147D6A;
+    height: 100%;
+    margin: 10px;
+}
+
+canvas {
+    position: absolute;
+}
+
+#canvasWrapper {
+    margin-left: 400px;
+    margin-top: 100px;
+    position: relative;
+}
+
+#coordinate {
+    position: absolute;
+    height: 15px;
+    width: 45px;
+    border-radius: 6px;
+    text-align: center;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    padding: 2px;
+}
+
+#coord {
+    font-size: 1px;
+    color: white;
 }
 
 .btn {
