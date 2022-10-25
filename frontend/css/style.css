@@ -410,7 +410,7 @@ input[type="search"]::placeholder {
     left: 55px;
     top: 70px;
     bottom: 0;
-    width: 220px;
+    width: 280px;
     height: 100%;
     background-color: #D9D9D9;
     position: fixed;
@@ -422,9 +422,10 @@ input[type="search"]::placeholder {
 }
 
 .sidebar-content {
-    background-color: #147D6A;
     height: 100%;
     margin: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 canvas {
@@ -476,4 +477,21 @@ canvas {
 
 .btn:hover {
     background-color: RoyalBlue;
+}
+
+.beddingField {
+    font-size: 12px;
+}
+
+#bedding {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dimensionInput {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
 }
