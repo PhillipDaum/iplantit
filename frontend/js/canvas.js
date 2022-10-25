@@ -24,6 +24,9 @@ let penInUse = false;
         calendarPhoto.src = 'img/calendarUnselected.svg'
         beddingPhoto.src = 'img/beddingSelected.svg'
         seedPackage.src = 'img/seedPacketUnselected.svg'
+    }
+
+    function drawBedding() {
         if (penInUse) {
             penInUse = false;
             resetCanvas();
@@ -32,7 +35,6 @@ let penInUse = false;
             penInUse = true;
             rectPen();
         }
-
     }
 
     function seeds() {
@@ -202,16 +204,52 @@ function Overlap(rect, pointer) {
     return false;
 }
 
-
-
+var selectedRect = "";
 canvas.on('selection:created', function(o) {
-    console.log(canvas.getActiveObject());
 
+    selectedRect = canvas.getActiveObject();
+    console.log(selectedRect);
+    let widthInputField = document.getElementById("widthInput");
+    let heightInputField = document.getElementById("heightInput");
+    widthInputField.value = selectedRect.width;
+    heightInputField.value = selectedRect.height;
 });
+
+canvas.on('selection:cleared', function(o) {
+    selectedRect = "";
+    let widthInputField = document.getElementById("widthInput");
+    let heightInputField = document.getElementById("heightInput");
+    widthInputField.value = "";
+    heightInputField.value = "";
+});
+
 canvas.on('selection:updated', function() {
-    console.log(canvas.getActiveObject());
+    selectedRect = canvas.getActiveObject();
+    console.log(selectedRect);
+    let widthInputField = document.getElementById("widthInput");
+    let heightInputField = document.getElementById("heightInput");
+    widthInputField.value = selectedRect.width;
+    heightInputField.value = selectedRect.height;
 });
 
+function modifyRectDimension(w, h) {
+    w = parseFloat(w);
+    h = parseFloat(h);
+    if (selectedRect != "") {
+        if (w == -1) {
+            selectedRect.set({ height: h });
+        } else if (h == -1) {
+            selectedRect.set({ width: w });
+        } else {
+            selectedRect.set({ height: h });
+            selectedRect.set({ width: w });
+        }
+        canvas.renderAll();
+
+    }
+
+    console.log(h);
+}
 
 function drawGrid(context) {
     let width = context.canvas.clientWidth;

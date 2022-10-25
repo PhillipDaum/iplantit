@@ -22,24 +22,29 @@ function AddSeed(props) {
   )
 }
 
-function Bedding(props) {
+function BeddingSideBar(props) {
   return (
     <div id="bedding">
       <div className="dimensionInput">
-        <label className="beddingField" htmlFor="widthInput">Width (m):</label>
-        <input type="text" className="dimensionInputField" name="widthInput"></input>
+        <label className="beddingField" htmlFor="widthInput" >Width (m):</label>
+        <input type="text" className="dimensionInputField" id="widthInput" name="widthInput" onChange={e => modifyRectDimension(e.target.value,-1)}></input>
       </div>
       <div className="dimensionInput">
         <label className="beddingField" htmlFor="heightInput">Height (m):</label>
-        <input type="text" className="dimensionInputField" name="widthInput"></input>
+        <input type="text" className="dimensionInputField" id="heightInput" name="heightInput" onChange={e => modifyRectDimension(-1,e.target.value)}></input>
       </div>
+      <button className="btn" onClick={() => drawBedding()}>
+        <i id="addIcon"className="fa fa-circle-plus fa-2x"></i>
+        <br></br>
+        Add Bedding
+      </button>
 
     </div>
   );
 }
 
 var beddingInfo = <SideBarContent title="Bedding">
-  <Bedding></Bedding>
+  <BeddingSideBar></BeddingSideBar>
 
 </SideBarContent>;
 var seedInfo = <SideBarContent title="Seeds">
