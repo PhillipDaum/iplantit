@@ -8,10 +8,20 @@ class Garden {
 
 // A bedding object stores all data about a specific bedding
 class Bedding extends fabric.Rect {
-    constructor(plants, soil, argmap) {
+    constructor(seeds, soil, argmap) {
         super(argmap);
-        this.plants = plants;
+        this.seeds = seeds;
         this.soil = soil;
+    }
+    addSeed(sd) {
+        this.seeds.push(sd);
+    }
+}
+
+class Seed {
+    constructor(name, amount) {
+        this.name = name
+        this.amount = amount
     }
 }
 

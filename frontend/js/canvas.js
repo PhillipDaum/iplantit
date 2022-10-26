@@ -16,60 +16,103 @@ let morePhoto = document.getElementById('more');
 
 let penInUse = false;
 // Functions for side bar navication
-{
 
-    function bedding() {
-        sideBarRoot.render(beddingInfo);
-        morePhoto.src = 'img/moreUnselected.svg'
-        calendarPhoto.src = 'img/calendarUnselected.svg'
-        beddingPhoto.src = 'img/beddingSelected.svg'
-        seedPackage.src = 'img/seedPacketUnselected.svg'
-    }
 
-    function drawBedding() {
-        if (penInUse) {
-            penInUse = false;
-            resetCanvas();
+function bedding() {
+    sideBarRoot.render(beddingInfo);
+    morePhoto.src = 'img/moreUnselected.svg'
+    calendarPhoto.src = 'img/calendarUnselected.svg'
+    beddingPhoto.src = 'img/beddingSelected.svg'
+    seedPackage.src = 'img/seedPacketUnselected.svg'
+}
 
-        } else {
-            penInUse = true;
-            rectPen();
-        }
-    }
+function drawBedding() {
+    if (penInUse) {
+        penInUse = false;
+        resetCanvas();
 
-    function seeds() {
-        // infoDiv.innerHTML = `<p>My Seeds</p>`
-        morePhoto.src = 'img/moreUnselected.svg'
-        calendarPhoto.src = 'img/calendarUnselected.svg'
-        beddingPhoto.src = 'img/beddingUnselected.svg'
-        seedPackage.src = 'img/seedPacketSelected.svg'
-        sideBarRoot.render(seedInfo);
-
-    }
-
-    function calendar() {
-        morePhoto.src = 'img/moreUnselected.svg'
-        calendarPhoto.src = 'img/calendarSelected.svg'
-        beddingPhoto.src = 'img/beddingUnselected.svg'
-        seedPackage.src = 'img/seedPacketUnselected.svg'
-        sideBarRoot.render(timeInfo);
-
-    }
-
-    function more() {
-        morePhoto.src = 'img/moreSelected.svg'
-        calendarPhoto.src = 'img/calendarUnselected.svg'
-        beddingPhoto.src = 'img/beddingUnselected.svg'
-        seedPackage.src = 'img/seedPacketUnselected.svg'
-        sideBarRoot.render(moreInfo);
-
+    } else {
+        penInUse = true;
+        rectPen();
     }
 }
+
+function seeds() {
+    // infoDiv.innerHTML = `<p>My Seeds</p>`
+    morePhoto.src = 'img/moreUnselected.svg'
+    calendarPhoto.src = 'img/calendarUnselected.svg'
+    beddingPhoto.src = 'img/beddingUnselected.svg'
+    seedPackage.src = 'img/seedPacketSelected.svg'
+
+    sideBarRoot.render(seedInfo);
+}
+
+function calendar() {
+    morePhoto.src = 'img/moreUnselected.svg'
+    calendarPhoto.src = 'img/calendarSelected.svg'
+    beddingPhoto.src = 'img/beddingUnselected.svg'
+    seedPackage.src = 'img/seedPacketUnselected.svg'
+    sideBarRoot.render(timeInfo);
+
+}
+
+function more() {
+    morePhoto.src = 'img/moreSelected.svg'
+    calendarPhoto.src = 'img/calendarUnselected.svg'
+    beddingPhoto.src = 'img/beddingUnselected.svg'
+    seedPackage.src = 'img/seedPacketUnselected.svg'
+    sideBarRoot.render(moreInfo);
+
+}
+
 
 let garden = new Garden(100, 100, new Array(), 'weather', 'GA');
 
 let canvas = new fabric.Canvas('garden-canvas', {
     selection: true,
+});
+
+var selectedRect = "";
+canvas.on('selection:created', function(o) {
+
+    selectedRect = canvas.getActiveObject();
+    console.log(selectedRect);
+    let widthInputField = document.getElementById("widthInput");
+    let heightInputField = document.getElementById("heightInput");
+
+    if (widthInputField == null || heightInputField == null) {
+        let addSeedPage = document.getElementById("seedTab")
+        if (addSeedPage == null) return;
+
+    } else {
+        widthInputField.value = selectedRect.width;
+        heightInputField.value = selectedRect.height;
+    }
+
+});
+
+canvas.on('selection:cleared', function(o) {
+    selectedRect = "";
+    let widthInputField = document.getElementById("widthInput");
+    let heightInputField = document.getElementById("heightInput");
+    if (widthInputField == null || heightInputField == null) {
+        let addSeedPage = document.getElementById("seedTab")
+        if (addSeedPage == null) return;
+        addSeedPage.innerHTML = "<p>Please select a bedding</p>"
+    } else {
+        widthInputField.value = "";
+        heightInputField.value = "";
+    }
+});
+
+canvas.on('selection:updated', function() {
+    selectedRect = canvas.getActiveObject();
+    console.log(selectedRect);
+    let widthInputField = document.getElementById("widthInput");
+    let heightInputField = document.getElementById("heightInput");
+    if (widthInputField == null || heightInputField == null) return;
+    widthInputField.value = selectedRect.width;
+    heightInputField.value = selectedRect.height;
 });
 
 // Allow drawing a rectangle
@@ -204,33 +247,6 @@ function Overlap(rect, pointer) {
     return false;
 }
 
-var selectedRect = "";
-canvas.on('selection:created', function(o) {
-
-    selectedRect = canvas.getActiveObject();
-    console.log(selectedRect);
-    let widthInputField = document.getElementById("widthInput");
-    let heightInputField = document.getElementById("heightInput");
-    widthInputField.value = selectedRect.width;
-    heightInputField.value = selectedRect.height;
-});
-
-canvas.on('selection:cleared', function(o) {
-    selectedRect = "";
-    let widthInputField = document.getElementById("widthInput");
-    let heightInputField = document.getElementById("heightInput");
-    widthInputField.value = "";
-    heightInputField.value = "";
-});
-
-canvas.on('selection:updated', function() {
-    selectedRect = canvas.getActiveObject();
-    console.log(selectedRect);
-    let widthInputField = document.getElementById("widthInput");
-    let heightInputField = document.getElementById("heightInput");
-    widthInputField.value = selectedRect.width;
-    heightInputField.value = selectedRect.height;
-});
 
 function modifyRectDimension(w, h) {
     w = parseFloat(w);

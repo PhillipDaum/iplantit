@@ -395,6 +395,11 @@ input[type="search"]::placeholder {
 
 /* ========== Everything below is for page 5 !! ===========*/
 
+.title {
+    margin-left: 25px;
+    font-size: 28px;
+}
+
 .sidebar {
     left: 0;
     top: 70px;
@@ -474,6 +479,7 @@ canvas {
     transition: all .2s ease-in-out;
     margin: 20px;
     font-size: 12px;
+    margin-top: 40px;
 }
 
 #addIcon {
@@ -490,11 +496,16 @@ canvas {
     transform: scale(1.1);
 }
 
+.btn:active {
+    background-color: #059e70;
+}
+
 .beddingField {
     font-size: 12px;
 }
 
 #bedding {
+    margin-top: 10%;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -503,6 +514,356 @@ canvas {
 .dimensionInput {
     display: flex;
     flex-direction: row;
-    gap: 5px;
+    gap: 10px;
     align-items: center;
+    margin-left: 25px;
+}
+
+.dimensionInputField {
+    border: none;
+    border-bottom: 2px solid #40c9a0;
+    background-color: transparent;
+    transition: all .2s ease-in-out;
+}
+
+.dimensionInputField:focus {
+    border: none;
+    border-bottom: 2px solid #40c9a0;
+    background-color: transparent;
+    transform: scale(1.1);
+}
+
+
+/* Seed Tab */
+
+#seedTab {
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+/* ================================ */
+
+
+/* ================================ */
+
+
+/* ================================ */
+
+.brd {
+    border: 1px solid #e2eded;
+    border-color: #eaf1f1 #e4eded #dbe7e7 #e4eded;
+}
+
+#app-cover {
+    position: relative;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 240px;
+    height: 42px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    z-index: 1;
+}
+
+#select-button {
+    position: relative;
+    height: 16px;
+    padding: 12px 14px;
+    background-color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#options-view-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+}
+
+#selected-value {
+    font-size: 16px;
+    line-height: 1;
+    margin-right: 26px;
+}
+
+.option .plantPic {
+    width: 16px;
+    height: 16px;
+}
+
+.option,
+.label {
+    color: #2d3667;
+    font-size: 16px;
+}
+
+#chevrons {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 12px;
+    padding: 9px 14px;
+}
+
+#chevrons .plantPic {
+    display: block;
+    height: 50%;
+    color: #d1dede;
+    font-size: 12px;
+    text-align: right;
+}
+
+#options-view-button:checked+#select-button #chevrons i {
+    color: #2d3667;
+}
+
+#options {
+    position: absolute;
+    top: 42px;
+    right: 0;
+    left: 0;
+    width: 240px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+#options-view-button:checked~#options {
+    border: 1px solid #e2eded;
+    border-color: #eaf1f1 #e4eded #dbe7e7 #e4eded;
+}
+
+.option {
+    position: relative;
+    line-height: 1;
+    transition: 0.3s ease all;
+    z-index: 5;
+}
+
+.option .plantPic {
+    position: absolute;
+    left: 14px;
+    padding: 0;
+    display: none;
+}
+
+#options-view-button:checked~#options .option .plantPic {
+    display: block;
+    padding: 12px 0;
+}
+
+.label {
+    display: none;
+    padding: 0;
+    margin-left: 27px;
+}
+
+#options-view-button:checked~#options .label {
+    display: block;
+    padding: 12px 14px;
+}
+
+.s-c {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50%;
+}
+
+.s-c.top {
+    top: 0;
+}
+
+.s-c.bottom {
+    bottom: 0;
+}
+
+input[type="radio"] {
+    position: absolute;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.s-c:hover~.plantPic {
+    color: #fff;
+    opacity: 0;
+}
+
+.s-c:hover {
+    height: 100%;
+    z-index: 5;
+}
+
+.s-c.bottom:hover+.plantPic {
+    bottom: -25px;
+    animation: moveup 0.3s ease 0.1s forwards;
+}
+
+.s-c.top:hover~.plantPic {
+    top: -25px;
+    animation: movedown 0.3s ease 0.1s forwards;
+}
+
+@keyframes moveup {
+    0% {
+        bottom: -25px;
+        opacity: 0;
+    }
+    100% {
+        bottom: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes movedown {
+    0% {
+        top: -25px;
+        opacity: 0;
+    }
+    100% {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+.label {
+    transition: 0.3s ease all;
+}
+
+.opt-val {
+    position: absolute;
+    left: 14px;
+    width: 217px;
+    height: 21px;
+    opacity: 0;
+    background-color: #fff;
+    transform: scale(0);
+}
+
+.option input[type="radio"]:checked~.opt-val {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.option input[type="radio"]:checked~.plantPic {
+    top: 0;
+    bottom: auto;
+    opacity: 1;
+    animation: unset;
+}
+
+.option input[type="radio"]:checked~.plantPic,
+.option input[type="radio"]:checked~.label {
+    color: #fff;
+}
+
+.option input[type="radio"]:checked~.label:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+#options-view-button:not(:checked)~#options .option input[type="radio"]:checked~.opt-val {
+    top: -30px;
+}
+
+.option input[type="radio"]:checked~.label:before {
+    background-color: rgb(183, 183, 183);
+}
+
+.option:nth-child(1) input[type="radio"]:checked~.opt-val {
+    top: -31px;
+}
+
+.option:nth-child(2) input[type="radio"]:checked~.opt-val {
+    top: -71px;
+}
+
+.option:nth-child(3) input[type="radio"]:checked~.opt-val {
+    top: -111px;
+}
+
+.option:nth-child(4) input[type="radio"]:checked~.opt-val {
+    top: -151px;
+}
+
+.option:nth-child(5) input[type="radio"]:checked~.opt-val {
+    top: -191px;
+}
+
+.option:nth-child(6) input[type="radio"]:checked~.opt-val {
+    top: -231px;
+}
+
+#option-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 40px;
+    transition: 0.3s ease all;
+    z-index: 1;
+    display: none;
+}
+
+#options-view-button:checked~#options #option-bg {
+    display: block;
+}
+
+.option:hover .label {
+    color: #fff;
+}
+
+.option:hover~#option-bg {
+    top: 0;
+    background-color: rgb(103, 103, 103);
+    border-radius: 4px 4px 0 0;
+}
+
+.option:nth-child(2):hover~#option-bg {
+    top: 40px;
+    background-color: rgb(103, 103, 103);
+}
+
+.option:nth-child(3):hover~#option-bg {
+    top: 80px;
+    background-color: rgb(103, 103, 103);
+}
+
+.option:nth-child(4):hover~#option-bg {
+    top: 120px;
+    background-color: rgb(103, 103, 103);
+}
+
+.option:nth-child(5):hover~#option-bg {
+    top: 160px;
+    background-color: rgb(103, 103, 103);
+}
+
+.option:nth-child(6):hover~#option-bg {
+    top: 200px;
+    background-color: rgb(103, 103, 103);
+    border-radius: 0 0 4px 4px;
 }
