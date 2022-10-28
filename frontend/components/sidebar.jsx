@@ -11,36 +11,51 @@ class SideBarContent extends React.Component {
   }
 }
 
-function SeedOption(props) {
-  return (
-    <div className="option">
-      <input
-        className="s-c top"
-        type="radio"
-        name="platform"
-        defaultValue={props.name}/>
-      <input
-        className="s-c bottom"
-        type="radio"
-        name="platform"
-        defaultValue={props.name}/>
-      <img className="plantPic" src={props.img}/>
-      <span className="label">{props.name}</span>
-      <span className="opt-val">{props.name}</span>
-    </div>
-  )
-}
 
 class SeedDropDown extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      amount: ""
+      amount: "",
+      plants: [
+        {
+          id: 0,
+          title: 'New York',
+          selected: false,
+          key: 'location'
+        }, {
+          id: 1,
+          title: 'Dublin',
+          selected: false,
+          key: 'location'
+        }, {
+          id: 2,
+          title: 'California',
+          selected: false,
+          key: 'location'
+        }, {
+          id: 3,
+          title: 'Istanbul',
+          selected: false,
+          key: 'location'
+        }, {
+          id: 4,
+          title: 'Izmir',
+          selected: false,
+          key: 'location'
+        }, {
+          id: 5,
+          title: 'Oslo',
+          selected: false,
+          key: 'location'
+        }
+      ]
     }
     this.insertAmount = this
       .insertAmount
       .bind(this);
   }
+  
   insertAmount() {
     console.log("clicked")
     this.setState({amount: (
@@ -61,25 +76,15 @@ class SeedDropDown extends React.Component {
   render() {
     return (
       <div className="seedDrop">
-        <form id="app-cover">
-          <div id="select-box">
-            <input type="checkbox" id="options-view-button"/>
-            <div id="select-button" className="brd">
-              <div id="selected-value">
-                <span>Select a Seed</span>
-              </div>
-              <div id="chevrons">
-                <img className="plantPic" src="./img/search.svg"></img>
-              </div>
-            </div>
-            <div id="options" onClick={this.insertAmount}>
-              <SeedOption name="carrot" img="./img/add.svg"></SeedOption>
-              <SeedOption name="carrot" img="./img/add.svg"></SeedOption>
-              <SeedOption name="carrot" img="./img/add.svg"></SeedOption>
-              <div id="option-bg"/>
-            </div>
-          </div>
-        </form>
+        <DropDown
+        items={[
+          { value: "United States", id: 1 },
+          { value: "Canada", id: 2 },
+          { value: "Mexico", id: 3 },
+          { value: "Japan", id: 4 }
+        ]} onClick = {()=>{this.insertAmount()}}
+      />
+        
         {this.state.amount}
       </div>
     )
