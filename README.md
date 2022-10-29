@@ -28,7 +28,7 @@
 - Node.js
 
 ## Solution Roadmap
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTv5HZ8K4JTSOAyx9O9UjYam-R-PzSxnbOQYoIF79Eq4gTSOA8Iw3mYsI7p76hZMMLrxoYPLYG3PCrF/embed?start=false&loop=true&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+https://docs.google.com/presentation/d/13Tld0auayDP0qe8fm_LJ7DUadZqYfe9nqoZZtEl-viA/edit?usp=sharing
 
 ## Team
 - Phil Daum
