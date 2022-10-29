@@ -122,6 +122,9 @@ function AddGardenPage2() {
             <b>Create</b>
           </button>
           <button className="cancelButton" onClick={navigateToCreateGarden}>Previous</button>
+          <a href="http://127.0.0.1:5500/frontend/src/pages/myGarden.html" target="_blank" rel="noreferrer">
+          Google.com
+        </a>
         </div>
       </div>
     </div>
