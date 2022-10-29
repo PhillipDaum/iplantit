@@ -76,10 +76,7 @@ var selectedRect = "";
 function getCurrentTab() {
     let beddingTab = document.getElementById("bedding");
     let seedTab = document.getElementById("seedTab");
-    // console.log("beddingTab: ")
-    // console.log(beddingTab)
-    // console.log("seedTab: ")
-    // console.log(seedTab)
+
     if (beddingTab != null) {
         return "beddingTab"
     } else if (seedTab != null) {
@@ -90,7 +87,7 @@ function getCurrentTab() {
 }
 canvas.on('selection:created', function(o) {
     selectedRect = canvas.getActiveObject();
-    console.log(selectedRect);
+
     if (getCurrentTab() === "beddingTab") {
         let widthInputField = document.getElementById("widthInput");
         let heightInputField = document.getElementById("heightInput");
@@ -128,7 +125,7 @@ canvas.on('selection:cleared', function(o) {
 
 canvas.on('selection:updated', function() {
     selectedRect = canvas.getActiveObject();
-    console.log(selectedRect);
+
     if (getCurrentTab() === "beddingTab") {
         let widthInputField = document.getElementById("widthInput");
         let heightInputField = document.getElementById("heightInput");

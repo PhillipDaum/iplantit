@@ -3,11 +3,8 @@ class DropDown extends React.Component {
     items: this.props.items || [],
     showItems: false,
     selectedItem: {
-      value: dummy,
-      id: -1
-    },
-    checkPlantColor: () => {
-      console.log("background should be red")
+      value: plantMap[this.props.plantName],
+      id: plantMap[this.props.plantName].pid
     }
   };
 
@@ -19,16 +16,19 @@ class DropDown extends React.Component {
 
   selectItem = item => {
     this.setState({selectedItem: item, showItems: false});
-    this.props.insertAmount(item.value.name);
+    console.log(selectedRect.seeds[item.value.name])
+    this.props.insertAmount(item.value.name,selectedRect.seeds[item.value.name]);
   };
+
+
 
   render() {
     return (
       <div className="dropDown--box">
         <div className="dropDown--container">
-          <div className="dropDown--selected-item">
+          <div className="dropDown--selected-item"onClick={this.dropDown}>
             {this.state.selectedItem.value.name}
-            <div className="dropDown--arrow" onClick={this.dropDown}>
+            <div className="dropDown--arrow" >
               <span
                 className={`${this.state.showItems
                 ? "dropDown--arrow-up"
@@ -47,19 +47,27 @@ class DropDown extends React.Component {
               .state
               .items
               .map(item => {
+                // item = {value: plant, id: plant.pid}
                 let color = "red";
                 if (item.id % 2 == 0) {
                   color = "green"
                 }
-                //item.checkRecommendation();
+                // Check recommendation
+                // plant: item.value
+                // currentBedding: selectedRect
+                // remove plant item if selected
+                if(selectedRect.seeds[item.value.name]!=0){
+                  return
+                }
                 return (
                   <div
                     key={item.id}
                     onClick={() => this.selectItem(item)}
                     className={this.state.selectedItem === item
-                    ? "selected"
-                    : ""}
+                    ? "dropDown--selected"
+                    : "dropDown--unselected"}
                     style={{
+
                     backgroundColor: color
                   }}>
                     {item.value.name}
@@ -77,26 +85,42 @@ class AmountField extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      plant: ""
+      plant: "",
+      currAmount: this.props.currAmount,
+      color: "white"
     }
   }
-  
+  componentDidMount(){
+
+  }
+  componentDidUpdate(){
+    console.log("amount field is updated")
+  }
   editSeedMap(amount){
-    console.log(this.props.selectedName)
     selectedRect.seeds[this.props.selectedName]=amount
+    console.log("seed amount updated")
     console.log(selectedRect.seeds)
+    this.setState({
+      currAmount: amount
+    })
+    if(amount>20){
+      this.setState({
+        color:"red"
+      })
+    } else {
+      this.setState({
+        color:"white"
+      })
+    }
   }
 
   render() {
     return (
-      <div style={{
-        display: "flex",
-        flexDirection: "row"
-      }}>
+      <div className="amountFieldWrapper">
         <p style={{
           fontSize: "8px"
         }}>Enter plant amount</p>
-        <input type="number" onChange={(e)=>{this.editSeedMap(e.target.value)}}></input>
+        <input type="number" onChange={(e)=>{this.editSeedMap(e.target.value)} } className="amountInputField"style={{backgroundColor: this.state.color}}value = {this.state.currAmount}></input>
       </div>
     )
   }

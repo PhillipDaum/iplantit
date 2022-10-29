@@ -14,7 +14,7 @@ class Garden {
 class Bedding extends fabric.Rect {
     constructor(soil, argmap) {
         super(argmap);
-        this.seeds = seedMap;
+        this.seeds = JSON.parse(JSON.stringify(seedMap));;
         this.soil = soil;
     }
 
@@ -42,6 +42,10 @@ class Plant {
         this.avoid = avoid
 
     }
+
+    isSuitable(bedding) {
+
+    }
 }
 var dummy = new Plant(0, "Select Plant")
 var sweetBasil = new Plant(1, "Sweet Basil", "", "basil", 2, 11, 9, ["pepper", "tomato"], ["corn", "beans"])
@@ -54,4 +58,12 @@ var seedMap = {
     "Marvelous Mix Mint": 0,
     "Vulgare Oregano": 0,
     "Common Arugula": 0
+}
+
+var plantMap = {
+    "Select Plant": dummy,
+    "Sweet Basil": sweetBasil,
+    "Marvelous Mix Mint": marvelousMixMint,
+    "Vulgare Oregano": vulgareOregano,
+    "Common Arugula": commonArugula
 }
