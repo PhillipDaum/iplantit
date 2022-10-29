@@ -1,7 +1,7 @@
 class SideBarContent extends React.Component {
   render() {
     return (
-      <div className="sidebar-content">
+      <div className="sidebar-content" id="sideBarWrapper">
         <p className="title">{this.props.title}</p>
         <div>
           {this.props.children}
@@ -19,35 +19,17 @@ class SeedDropDown extends React.Component {
       amount: "",
       plants: [
         {
-          id: 0,
-          title: 'New York',
-          selected: false,
-          key: 'location'
-        }, {
           id: 1,
-          title: 'Dublin',
-          selected: false,
-          key: 'location'
+          value: sweetBasil
         }, {
           id: 2,
-          title: 'California',
-          selected: false,
-          key: 'location'
+          value: marvelousMixMint
         }, {
           id: 3,
-          title: 'Istanbul',
-          selected: false,
-          key: 'location'
+          value: vulgareOregano
         }, {
           id: 4,
-          title: 'Izmir',
-          selected: false,
-          key: 'location'
-        }, {
-          id: 5,
-          title: 'Oslo',
-          selected: false,
-          key: 'location'
+          value: commonArugula
         }
       ]
     }
@@ -56,34 +38,18 @@ class SeedDropDown extends React.Component {
       .bind(this);
   }
   
-  insertAmount() {
-    console.log("clicked")
+  insertAmount(seed) {
     this.setState({amount: (
-        <div
-          style={{
-          display: "flex",
-          flexDirection: "row"
-        }}>
-          <p style={{
-            fontSize: "8px"
-          }}>Enter plant amount</p>
-          <input type="number"></input>
-        </div>
+       <AmountField selectedName= {seed}></AmountField>
 
       )})
-
   }
   render() {
     return (
       <div className="seedDrop">
         <DropDown
-        items={[
-          { value: "United States", id: 1 },
-          { value: "Canada", id: 2 },
-          { value: "Mexico", id: 3 },
-          { value: "Japan", id: 4 }
-        ]} onClick = {()=>{this.insertAmount()}}
-      />
+        items = {this.state.plants} insertAmount = {(s)=>{this.insertAmount(s)}}
+        />
         
         {this.state.amount}
       </div>
@@ -95,10 +61,39 @@ class SeedDropDown extends React.Component {
 class AddSeed extends React.Component {
   constructor(props) {
     super(props);
+    
     this.state = {
+      selectedRect: selectedRect,
       seedList: [],
-      key: 0
+      key: 0,
     }
+
+    this.handleSelection = this.handleSelection.bind(this);
+  }
+  handleSelection(){
+    this.setState({
+      selectedRect: selectedRect
+    })
+    
+  }
+  componentDidMount(){
+    console.log("mounted")
+    document.addEventListener("newSelection",this.handleSelection)
+  }
+  componentDidUpdate(){
+    console.log("new selection: ")
+    console.log(this.state.selectedRect);
+    console.log("the selected bedding has these plants: ")
+    console.log(this.state.selectedRect.seeds)
+    // this.setState({
+    //   seedList: this
+    //     .state
+    //     .seedList
+    //     .concat( < SeedDropDown key = {
+    //       this.state.key
+    //     } > </SeedDropDown>),
+    //   key: this.state.key + 1
+    // })
   }
   addPlant() {
     this.setState({
@@ -112,8 +107,10 @@ class AddSeed extends React.Component {
     });
   }
   render() {
+    console.log(this.props.pselectedRect)
     return (
       <div id="seedTab">
+        <div id="seedTabHint">{this.state.selectedRect.soil}</div>
         <div className="planted">
           {this.state.seedList}
         </div>
@@ -129,6 +126,7 @@ class AddSeed extends React.Component {
 }
 
 function BeddingSideBar(props) {
+
   return (
     <div id="bedding">
       <div className="dimensionInput">
@@ -166,8 +164,6 @@ var beddingInfo = <SideBarContent title="Bedding">
 var seedInfo = <SideBarContent title="Seeds">
   <AddSeed></AddSeed>
 </SideBarContent>;
-var seedInfoUnselected = <SideBarContent title="Seeds">
-  <p>{selectedRect}</p>
-</SideBarContent>;
+
 var timeInfo = <SideBarContent title="Schedule"/>;
 var moreInfo = <SideBarContent title="Extensions"/>;

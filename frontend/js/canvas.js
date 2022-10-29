@@ -10,7 +10,7 @@ var sideBarRoot = ReactDOM.createRoot(document.getElementById('content_info'));
 
 
 let seedPackage = document.getElementById('seedPackage');
-let beddingPhoto = document.getElementById('bedding');
+let beddingPhoto = document.getElementById('beddingIcon');
 let calendarPhoto = document.getElementById('calendar');
 let morePhoto = document.getElementById('more');
 
@@ -38,7 +38,6 @@ function drawBedding() {
 }
 
 function seeds() {
-    // infoDiv.innerHTML = `<p>My Seeds</p>`
     morePhoto.src = 'img/moreUnselected.svg'
     calendarPhoto.src = 'img/calendarUnselected.svg'
     beddingPhoto.src = 'img/beddingUnselected.svg'
@@ -66,53 +65,82 @@ function more() {
 }
 
 
-let garden = new Garden(100, 100, new Array(), 'weather', 'GA');
+let garden = new Garden(100, 100, new Array(), 'weather', 'GA', 30332);
 
 let canvas = new fabric.Canvas('garden-canvas', {
     selection: true,
 });
 
 var selectedRect = "";
-canvas.on('selection:created', function(o) {
 
+function getCurrentTab() {
+    let beddingTab = document.getElementById("bedding");
+    let seedTab = document.getElementById("seedTab");
+    // console.log("beddingTab: ")
+    // console.log(beddingTab)
+    // console.log("seedTab: ")
+    // console.log(seedTab)
+    if (beddingTab != null) {
+        return "beddingTab"
+    } else if (seedTab != null) {
+        return "seedTab"
+    } else {
+        return "otherTab"
+    }
+}
+canvas.on('selection:created', function(o) {
     selectedRect = canvas.getActiveObject();
     console.log(selectedRect);
-    let widthInputField = document.getElementById("widthInput");
-    let heightInputField = document.getElementById("heightInput");
+    if (getCurrentTab() === "beddingTab") {
+        let widthInputField = document.getElementById("widthInput");
+        let heightInputField = document.getElementById("heightInput");
+        widthInputField.value = selectedRect.width * selectedRect.scaleX;
+        heightInputField.value = selectedRect.height * selectedRect.scaleY;
+    } else if (getCurrentTab() === "seedTab") {
+        let seedTabHint = document.getElementById("seedTabHint");
+        seedTabHint.dispatchEvent(new CustomEvent("newSelection", {
+            bubbles: true
+        }));
 
-    if (widthInputField == null || heightInputField == null) {
-        let addSeedPage = document.getElementById("seedTab")
-        if (addSeedPage == null) return;
-
-    } else {
-        widthInputField.value = selectedRect.width;
-        heightInputField.value = selectedRect.height;
     }
+
+
+
+
 
 });
 
 canvas.on('selection:cleared', function(o) {
     selectedRect = "";
-    let widthInputField = document.getElementById("widthInput");
-    let heightInputField = document.getElementById("heightInput");
-    if (widthInputField == null || heightInputField == null) {
-        let addSeedPage = document.getElementById("seedTab")
-        if (addSeedPage == null) return;
-        addSeedPage.innerHTML = "<p>Please select a bedding</p>"
-    } else {
+    if (getCurrentTab() === "beddingTab") {
+        let widthInputField = document.getElementById("widthInput");
+        let heightInputField = document.getElementById("heightInput");
         widthInputField.value = "";
         heightInputField.value = "";
+    } else if (getCurrentTab() === "seedTab") {
+        let seedTabHint = document.getElementById("seedTabHint");
+        seedTabHint.dispatchEvent(new CustomEvent("newSelection", {
+            bubbles: true
+        }));
     }
+
 });
 
 canvas.on('selection:updated', function() {
     selectedRect = canvas.getActiveObject();
     console.log(selectedRect);
-    let widthInputField = document.getElementById("widthInput");
-    let heightInputField = document.getElementById("heightInput");
-    if (widthInputField == null || heightInputField == null) return;
-    widthInputField.value = selectedRect.width;
-    heightInputField.value = selectedRect.height;
+    if (getCurrentTab() === "beddingTab") {
+        let widthInputField = document.getElementById("widthInput");
+        let heightInputField = document.getElementById("heightInput");
+        widthInputField.value = selectedRect.width * selectedRect.scaleX;
+        heightInputField.value = selectedRect.height * selectedRect.scaleY;
+    } else if (getCurrentTab() === "seedTab") {
+        let seedTabHint = document.getElementById("seedTabHint");
+        seedTabHint.dispatchEvent(new CustomEvent("newSelection", {
+            bubbles: true
+        }));
+
+    }
 });
 
 // Allow drawing a rectangle
@@ -152,7 +180,7 @@ function rectPen() {
             origY = pointer.y;
             drawing = true;
 
-            rect = new Bedding('a', 'b', {
+            rect = new Bedding('regular soil', {
                 left: origX,
                 top: origY,
                 originX: 'left',
@@ -253,12 +281,15 @@ function modifyRectDimension(w, h) {
     h = parseFloat(h);
     if (selectedRect != "") {
         if (w == -1) {
-            selectedRect.set({ height: h });
+            selectedRect.set({
+                height: h,
+                scaleY: 1
+            });
         } else if (h == -1) {
-            selectedRect.set({ width: w });
+            selectedRect.set({ width: w, scaleX: 1 });
         } else {
-            selectedRect.set({ height: h });
-            selectedRect.set({ width: w });
+            selectedRect.set({ height: h, scaleY: 1 });
+            selectedRect.set({ width: w, scaleX: 1 });
         }
         canvas.renderAll();
 
