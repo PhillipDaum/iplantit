@@ -1,10 +1,6 @@
 # iplantit
-- This is the working title of our project. It is on the pathway to become a simple progressive web application that make food garden planning fun and easy!
-- These first rounds of development are for the <a href="https://callforcode-platform.bemyapp.com">Call for Code<a> hackathon
-- Looking for team-members! some of the things we need:
-    - Relational Databse Skills
-    - API integrations skills
-    - Front-end development 
+- There are all kinds of tools, websites, apps and books that can help people plan and maintain a garden.
+- ours is different becuase it offers suggestions
 
 ## The issue
 **Reduce Gloabal food insecurity** 
@@ -12,49 +8,44 @@
 - What grows well in your area? What grows well together? Where and when do I plant things? 
 - The questions go on...
 
-
-## The solution (about 10 words)
-- A simple graphical vector-based application that makes sustainable food gardening and planning fun and easy. It will generate potential garden bed plots that are easy to understand.
-
+## The solution
+- A simple application that makes sustainable food gardening and planning fun, easy and accesiable. It will generate potential garden bed plots that are easy to understand.
 - The long term goal is to create community, more features and expand the product to help as many people as possible!
 
-## How it works (up to 5 steps)
-1. User enters the size and shape of their garden bed plot
-2. Algorithms match potential plants
-3. Users see several computer generated potential garden bed plots 
-4. Later, we can add more features and a larger database
-5. Then we can help lots of people grow food!
+## How it works
+1. User enters the size of the garden bed they want to grow in and their zip code
+2. Our algorithms match potential plants that could work well together in the user's garden bed and geographical location
+3. Users can see several of suggestions 
+4. Users can connect with other gardeners in their local community, or anywhere. 
 
+## Demo Video
 
-## Solution Roadmap (needs work)
-1. Building a Minimum Viable Product
-- <a href="https://docs.google.com/presentation/d/13Tld0auayDP0qe8fm_LJ7DUadZqYfe9nqoZZtEl-viA/edit?usp=sharing">Google Sheets Roadmap (in progress)<a> 
+## Live demo
 
+## Built with
+- [IBM DB2](https://www.ibm.com/products/db2)
+- React
+- Node.js
+
+## Solution Roadmap
+https://docs.google.com/presentation/d/13Tld0auayDP0qe8fm_LJ7DUadZqYfe9nqoZZtEl-viA/edit?usp=sharing
 
 ## Team
 - Phil Daum
-
-# Additional
-
-## Figma
-- https://www.figma.com/file/kmE41NwtIqIXkXOI7FgGr5/iplantit
+- Andrew Hsu
+- Lara Bailen
 
 ## contributing
-Currently this project is in its intial phases as part of the IBM Call for Code hackathon.The team can have up to five participants.
 - If you are intereted in collaborating, send a message to Phil!
 - 📫 philgdaum@gmail.com
 
-## Data Sources
-- Starting off simple
--- Google sheets in progress: https://docs.google.com/spreadsheets/d/1iU_Rn9BQwQSm-3zeFGbPUFh-3Pl34hcUC1iAi9vNQzA/edit#gid=446916469
+## License
+This project is licensed under the MIT License.
 
-- Potential Data Sources to add later
--- Hardiness Zone: https://www.fs.fed.us/wildflowers/Native_Plant_Materials/Native_Gardening/hardinesszones.shtml
--- USDA Web Soil Survey: https://websoilsurvey.sc.egov.usda.gov/App/HomePage.htm
-- Weather
-    - tools from hackathon
-    -- Weather Company API (costs money I think just after December 1, 2022)
-- Indexes of Seed information
-    -- Look at google docs for now
-- Good info: https://community.ibm.com/community/user/datascience/blogs/susan-malaika/2020/02/21/call-for-code-useful-datasets
-
+## Acknowledgments
+- GitHub user [waldoj](https://github.com/waldoj) for creating an [API for USDA plant hardiness zones](https://github.com/waldoj/frostline)
+- Illustrations are derivatives of the following Wikimedia Commons contributors: 
+    - Donna Hughes, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>;
+    - Liwnoc, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>;
+    - Creazilla, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>
+- Logo is the Font Awesome icon "seedling"
