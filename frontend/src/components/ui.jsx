@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {solid, regular, brands, icon} from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
-import logo from '../img/logo-draft.png';
+import logo from '../img/logo.svg';
 import './ui.css'
 import {useNavigate} from 'react-router-dom'
 
@@ -33,21 +33,21 @@ const Footer = () => (
 function LoggedInHeader(props) {
   return (
     <div className="navBar">
-      <img src={logo} id="navBarLogo"/>
+      <a id="navBarLink" href='/'><img src={logo} id="navBarLogo"/></a>
       <div className='navBarIcons'>
         <FontAwesomeIcon
           className="navBarIcon"
           icon={solid('bell')}
           size={'xl'}
           style={{
-          color: "white"
+          color: "black"
         }}/>
         <FontAwesomeIcon
           className="navBarIcon"
           icon={solid('circle-user')}
           size={'xl'}
           style={{
-          color: "white"
+          color: "black"
         }}/>
       </div>
     </div>
