@@ -65,8 +65,12 @@ function more() {
 }
 
 
-let garden = new Garden(100, 100, new Array(), 'weather', 'GA', 30332);
-
+let garden = new Garden(100, 100, new Array(), 'weather', 'GA', 30313);
+let hardinessInfo;
+fetch('https://phzmapi.org/' + garden.postalCode + '.json').then((response) => response.json()).then((data) => {
+    hardinessInfo = data
+    console.log(hardinessInfo);
+});
 let canvas = new fabric.Canvas('garden-canvas', {
     selection: true,
 });
@@ -100,11 +104,6 @@ canvas.on('selection:created', function(o) {
         }));
 
     }
-
-
-
-
-
 });
 
 canvas.on('selection:cleared', function(o) {
@@ -185,7 +184,7 @@ function rectPen() {
                 width: pointer.x - origX,
                 height: pointer.y - origY,
                 angle: 0,
-                fill: 'rgba(255,199,0,0.5)',
+                fill: 'rgba(77, 208, 225, 0.5)',
                 transparentCorners: false
             });
 
@@ -215,8 +214,8 @@ function rectPen() {
 
         // calculate the rectangle width/height based
         // on starting vs current mouse position
-        var width = origX - pointer.x;
-        var height = origY - pointer.y;
+        var width = pointer.x - origX;
+        var height = pointer.y - origY;
 
         // TODO: convert width and height to actual dimension
         coord.innerText = width + "," + height;
@@ -239,7 +238,7 @@ function rectPen() {
             ...fabric.Text.prototype.controls,
             mtr: new fabric.Control({ visible: false })
         }
-
+        rect.set({ availableSpace: this.width * this.height / 2000 })
         coordinate.style.backgroundColor = "transparent";
         coord.innerText = "";
 
