@@ -10,7 +10,7 @@
 .grey-zone {
     width: 100%;
     height: 450px;
-    background-color: #D9D9D9;
+    background-color: #36AD89;
     z-index: -1;
     margin-bottom: -450px;
 }
@@ -22,11 +22,21 @@
 .gardenViewSection {
     display: flex;
     flex-direction: column;
+    background-color: #36AD89;
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+
+.commoGardenViewSection {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
     margin-top: 4%;
     margin-bottom: 4%;
 }
 
 .gardenViewHeading {
+    color: black;
     margin-left: 10%;
     text-align: left;
     font-size: 30px;

@@ -1,14 +1,19 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './infoPage.css'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {solid, regular, brands, icon} from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
-import logo from '../img/logo-draft.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
+import logo from '../img/logo-white.svg';
+import logo_bottom from '../img/logo-bottom-page.svg'
 import externalLink from '../img/external-link.png';
-import {Footer} from '../components/ui'
+import { Footer } from '../components/ui'
 import circle1 from '../img/1_round.png';
 import circle2 from '../img/2_round.png';
 import circle3 from '../img/3_round.png';
-import {useNavigate} from 'react-router-dom'
+import guy from '../img/guy.svg'
+import circle from '../img/circle-background.svg'
+import lady from '../img/lady.svg'
+import bottomCircle from '../img/quarter-circle.svg'
+import { useNavigate } from 'react-router-dom'
 
 function InfoPage() {
 
@@ -21,20 +26,33 @@ function InfoPage() {
   return (
     <div className='infoPage'>
       <div className="navbar">
-        <img src={logo} id="nav-bar-icon"/>
+        <img src={logo} id="nav-bar-icon" />
         <div id="searchBar">
           <div className="inputIcon"><FontAwesomeIcon
             icon={solid('magnifying-glass')}
             size={'xs'}
             style={{
-      color: "grey"
-    }}/></div>
+              color: "grey"
+            }} /></div>
           <input className="input-field" type="text" placeholder="Search gardens"></input>
         </div>
         <button id="login-button">Login / Sign Up</button>
 
       </div>
+      <div style={{ position: "absolute", zIndex: "-1" }}>
+        <img style={{ height: 400 }} src={circle} />
+      </div>
+      <div style={{ position: "absolute", right: 0, top: 500, zIndex: "-1" }}>
+        <img src={circle} />
+      </div>
+      <div style={{ position: "absolute", top: 1000, zIndex: "-1" }}>
+        <img src={circle} />
+      </div>
+      <div style={{ position: "absolute", zIndex: "-1", top: 1700, right: 0 }}>
+        <img style={{ height: 1000 }} src={bottomCircle} />
+      </div>
       <div id="content-main-page">
+
         <div id="titleBlock">
           <div className="titleBlockText">
             <h1 id="mainTitle">Your Gardening Journey Starts Here</h1>
@@ -49,18 +67,21 @@ function InfoPage() {
               <button
                 id="watchDemoBtn"
                 onClick={() => {
-                console.log("watch demo")
-              }}>Watch Demo
-                <img height="100%" src={externalLink}/>
+                  console.log("watch demo")
+                }}>Watch Demo
+                <img height="100%" src={externalLink} />
               </button>
             </div>
           </div>
           <div id="someCoolAnim">
-            <h3>anim place holder</h3>
+            <img src={guy} />
           </div>
         </div>
 
         <div className="infoCard">
+          <div className="filler">
+            <img src={lady} />
+          </div>
           <div className="infoCardText">
             <h1>Our Mission</h1>
             <p >Global Food Insecurity: One great way to get food that is nutritious,
@@ -70,9 +91,7 @@ function InfoPage() {
               that are easy to understand.
             </p>
           </div>
-          <div className="filler">
-            <p>some image</p>
-          </div>
+
         </div>
 
         <div className="stepCardSection">
@@ -81,19 +100,19 @@ function InfoPage() {
           </h1>
           <div className="stepCards">
             <div className="stepCard">
-              <img className="round-number" src={circle1}/>
+              <img className="round-number" src={circle1} />
               <h4>Enter Garden Bed Information</h4>
               <p>Users will enter the size and shape of their garden bed</p>
             </div>
             <div className="stepCard">
-              <img className="round-number" src={circle2}/>
+              <img className="round-number" src={circle2} />
               <h4>AI Generates Potential Garden Bed Plots</h4>
               <p>Algorithms create a list of potential garden plots. It uses data from the
                 seed/plant relational database. Later we can integrate APIs for weather and soil
                 data</p>
             </div>
             <div className="stepCard">
-              <img className="round-number" src={circle3}/>
+              <img className="round-number" src={circle3} />
               <h4>Build Community</h4>
               <p>Starting with Call for Code and go from there. Building community can help us
                 add more features, more data and reach more users.</p>
@@ -102,7 +121,7 @@ function InfoPage() {
           </div>
         </div>
         <div className="closing">
-          <img id="closingIcon" src={logo}/>
+          <img id="closingIcon" src={logo_bottom} />
 
           <button
             className="startGardeningBtn"
