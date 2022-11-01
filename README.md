@@ -19,8 +19,7 @@
 4. Users can connect with other gardeners in their local community, or anywhere. 
 
 ## Demo Video
-
-## Live demo
+https://youtu.be/rrDzHoShVhY
 
 ## Built with
 - [IBM DB2](https://www.ibm.com/products/db2)
