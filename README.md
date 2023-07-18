@@ -9,7 +9,7 @@
 - The questions go on...
 
 ## The solution
-- A simple application that makes sustainable food gardening and planning fun, easy and accesiable. It will generate potential garden bed plots that are easy to understand.
+- A simple application that makes sustainable food gardening and planning fun, easy and accessible. It will generate potential garden bed plots that are easy to understand.
 - The long term goal is to create community, more features and expand the product to help as many people as possible!
 
 ## How it works
